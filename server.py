@@ -146,8 +146,9 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                             'emotion_categorical', 'emotion_anger_likert', 'emotion_joy_likert',
                             'emotion_sadness_likert', 'emotion_optimism_likert',
                             'sentiment_categorical', 'sentiment_likert',
-                            'mf_care', 'mf_proportionality', 'mf_equality',
-                            'mf_loyalty', 'mf_authority', 'mf_purity',
+                            'mf_care', 'mf_fairness', 'mf_loyalty',
+                            'mf_authority', 'mf_purity', 'mf_liberty',
+                            'mf_honesty', 'mf_selfdiscipline',
                             'political_guess'
                         ]
                         for field in annotation_fields:
@@ -173,11 +174,13 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
             'sentiment_categorical',
             'sentiment_likert',
             'mf_care',
-            'mf_proportionality',
-            'mf_equality',
+            'mf_fairness',
             'mf_loyalty',
             'mf_authority',
             'mf_purity',
+            'mf_liberty',
+            'mf_honesty',
+            'mf_selfdiscipline',
             'political_guess'
         ]
         
@@ -218,11 +221,13 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
             'sentiment_categorical',
             'sentiment_likert',
             'mf_care',
-            'mf_proportionality',
-            'mf_equality',
+            'mf_fairness',
             'mf_loyalty',
             'mf_authority',
             'mf_purity',
+            'mf_liberty',
+            'mf_honesty',
+            'mf_selfdiscipline',
             'political_guess'
         ]
         all_columns = base_columns + annotation_columns

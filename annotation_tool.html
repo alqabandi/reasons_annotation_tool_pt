@@ -256,7 +256,7 @@
             position: sticky;
             top: 80px;
             z-index: 50;
-            max-height: 200px;
+            max-height: 320px;
             overflow-y: auto;
         }
 
@@ -819,12 +819,14 @@
             <h4 style="color: var(--text-primary); margin-top: 1rem;">⚖️ Moral Foundations</h4>
             <p>For each moral foundation, select "Yes" if the text expresses or relates to that value, "No" if it doesn't:</p>
             <ul>
-                <li><strong>Care:</strong> Concern for the well-being and suffering of others</li>
-                <li><strong>Proportionality:</strong> People should receive outcomes proportional to their contributions</li>
-                <li><strong>Equality:</strong> Everyone should be treated the same regardless of background</li>
-                <li><strong>Loyalty:</strong> Faithfulness to one's group, family, or nation</li>
-                <li><strong>Authority:</strong> Respect for tradition, hierarchy, and legitimate authorities</li>
-                <li><strong>Purity:</strong> Concerns about sanctity, disgust, and contamination</li>
+                        <li><strong>Care:</strong> Compassion, kindness, and concern for the suffering of others</li>
+                        <li><strong>Fairness:</strong> Cooperation, trustworthiness, and treating people equally</li>
+                        <li><strong>Loyalty:</strong> Faithfulness to one's group, family, or nation; not betraying others</li>
+                        <li><strong>Authority:</strong> Deference toward legitimate authorities and respect for tradition</li>
+                        <li><strong>Purity:</strong> Avoiding disgust, contamination; maintaining cleanliness and sanctity</li>
+                        <li><strong>Liberty:</strong> Individual freedom, autonomy, and resisting domination</li>
+                        <li><strong>Honesty:</strong> Being truthful, sincere, and open</li>
+                        <li><strong>Self-discipline:</strong> Persistence, self-control, and resisting temptation</li>
             </ul>
             
             <h4 style="color: var(--text-primary); margin-top: 1rem;">🗳️ Political Inference</h4>
@@ -1027,7 +1029,7 @@
                     <div class="moral-item">
                         <div class="question" data-field="mf_care">
                             <div class="question-text">Care</div>
-                            <div class="moral-definition">Concern for the well-being and suffering of others</div>
+                            <div class="moral-definition">Compassion, kindness, and concern for the suffering of others</div>
                             <div class="yesno-container">
                                 <button class="yesno-btn yes" data-value="1">Yes</button>
                                 <button class="yesno-btn no" data-value="2">No</button>
@@ -1037,21 +1039,9 @@
                     </div>
 
                     <div class="moral-item">
-                        <div class="question" data-field="mf_proportionality">
-                            <div class="question-text">Proportionality</div>
-                            <div class="moral-definition">People should receive outcomes proportional to their contributions</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_equality">
-                            <div class="question-text">Equality</div>
-                            <div class="moral-definition">Everyone should be treated the same regardless of background</div>
+                        <div class="question" data-field="mf_fairness">
+                            <div class="question-text">Fairness</div>
+                            <div class="moral-definition">Cooperation, trustworthiness, and treating people equally</div>
                             <div class="yesno-container">
                                 <button class="yesno-btn yes" data-value="1">Yes</button>
                                 <button class="yesno-btn no" data-value="2">No</button>
@@ -1063,7 +1053,7 @@
                     <div class="moral-item">
                         <div class="question" data-field="mf_loyalty">
                             <div class="question-text">Loyalty</div>
-                            <div class="moral-definition">Faithfulness to one's group, family, or nation</div>
+                            <div class="moral-definition">Faithfulness to one's group, family, or nation; not betraying others</div>
                             <div class="yesno-container">
                                 <button class="yesno-btn yes" data-value="1">Yes</button>
                                 <button class="yesno-btn no" data-value="2">No</button>
@@ -1075,7 +1065,7 @@
                     <div class="moral-item">
                         <div class="question" data-field="mf_authority">
                             <div class="question-text">Authority</div>
-                            <div class="moral-definition">Respect for tradition, hierarchy, and legitimate authorities</div>
+                            <div class="moral-definition">Deference toward legitimate authorities and respect for tradition</div>
                             <div class="yesno-container">
                                 <button class="yesno-btn yes" data-value="1">Yes</button>
                                 <button class="yesno-btn no" data-value="2">No</button>
@@ -1087,7 +1077,43 @@
                     <div class="moral-item">
                         <div class="question" data-field="mf_purity">
                             <div class="question-text">Purity</div>
-                            <div class="moral-definition">Concerns about sanctity, disgust, and contamination</div>
+                            <div class="moral-definition">Avoiding disgust, contamination; maintaining cleanliness and sanctity</div>
+                            <div class="yesno-container">
+                                <button class="yesno-btn yes" data-value="1">Yes</button>
+                                <button class="yesno-btn no" data-value="2">No</button>
+                            </div>
+                            <div class="validation-error">Please select</div>
+                        </div>
+                    </div>
+
+                    <div class="moral-item">
+                        <div class="question" data-field="mf_liberty">
+                            <div class="question-text">Liberty</div>
+                            <div class="moral-definition">Individual freedom, autonomy, and resisting domination</div>
+                            <div class="yesno-container">
+                                <button class="yesno-btn yes" data-value="1">Yes</button>
+                                <button class="yesno-btn no" data-value="2">No</button>
+                            </div>
+                            <div class="validation-error">Please select</div>
+                        </div>
+                    </div>
+
+                    <div class="moral-item">
+                        <div class="question" data-field="mf_honesty">
+                            <div class="question-text">Honesty</div>
+                            <div class="moral-definition">Being truthful, sincere, and open</div>
+                            <div class="yesno-container">
+                                <button class="yesno-btn yes" data-value="1">Yes</button>
+                                <button class="yesno-btn no" data-value="2">No</button>
+                            </div>
+                            <div class="validation-error">Please select</div>
+                        </div>
+                    </div>
+
+                    <div class="moral-item">
+                        <div class="question" data-field="mf_selfdiscipline">
+                            <div class="question-text">Self-discipline</div>
+                            <div class="moral-definition">Persistence, self-control, and resisting temptation</div>
                             <div class="yesno-container">
                                 <button class="yesno-btn yes" data-value="1">Yes</button>
                                 <button class="yesno-btn no" data-value="2">No</button>
@@ -1537,11 +1563,13 @@
                 'sentiment_categorical',
                 'sentiment_likert',
                 'mf_care',
-                'mf_proportionality',
-                'mf_equality',
+                'mf_fairness',
                 'mf_loyalty',
                 'mf_authority',
                 'mf_purity',
+                'mf_liberty',
+                'mf_honesty',
+                'mf_selfdiscipline',
                 'political_guess'
             ];
 
@@ -1578,11 +1606,13 @@
                 'sentiment_categorical',
                 'sentiment_likert',
                 'mf_care',
-                'mf_proportionality',
-                'mf_equality',
+                'mf_fairness',
                 'mf_loyalty',
                 'mf_authority',
                 'mf_purity',
+                'mf_liberty',
+                'mf_honesty',
+                'mf_selfdiscipline',
                 'political_guess'
             ];
 
@@ -1659,11 +1689,13 @@
                 'sentiment_categorical',
                 'sentiment_likert',
                 'mf_care',
-                'mf_proportionality',
-                'mf_equality',
+                'mf_fairness',
                 'mf_loyalty',
                 'mf_authority',
                 'mf_purity',
+                'mf_liberty',
+                'mf_honesty',
+                'mf_selfdiscipline',
                 'political_guess'
             ];
 
@@ -1684,11 +1716,13 @@
                     ann.sentiment_categorical || '',
                     ann.sentiment_likert || '',
                     ann.mf_care || '',
-                    ann.mf_proportionality || '',
-                    ann.mf_equality || '',
+                    ann.mf_fairness || '',
                     ann.mf_loyalty || '',
                     ann.mf_authority || '',
                     ann.mf_purity || '',
+                    ann.mf_liberty || '',
+                    ann.mf_honesty || '',
+                    ann.mf_selfdiscipline || '',
                     ann.political_guess || ''
                 ].join(',');
             });
