@@ -1,122 +1,124 @@
-# Text Annotation Tool (English)
+# Ferramenta de Anotação de Textos (Português Brasileiro)
 
-This tool lets research annotators read short text responses about political topics and label them for emotion, sentiment, moral foundations, and political leaning. It runs in the browser, saves progress automatically, and gives each annotator their own output file.
+Esta ferramenta permite que anotadores de pesquisa leiam respostas curtas sobre tópicos políticos e as classifiquem quanto a emoção, sentimento, fundamentos morais e posicionamento político. Ela roda no navegador, salva o progresso automaticamente e cria um arquivo de saída individual para cada anotador.
 
-## What Annotators Do
+## O Que os Anotadores Fazem
 
-Each annotator reads a participant's response to a political statement -- along with the context of what statement they responded to and whether they agreed or disagreed -- and answers four sets of questions:
+Cada anotador lê a resposta de um participante a uma afirmação política — junto com o contexto de qual afirmação ele respondeu e se concordou ou discordou — e responde a quatro conjuntos de perguntas:
 
-- **Emotions** -- Pick the primary emotion (Anger, Joy, Sadness, or Optimism) and rate the intensity of each on a 1--7 scale.
-- **Sentiment** -- Classify the text as Positive, Neutral, or Negative, then rate it on a 1--7 scale.
-- **Moral Foundations** -- Mark Yes or No for each of eight foundations: Care, Fairness, Loyalty, Authority, Purity, Liberty, Honesty, and Self-discipline.
-- **Political Inference** -- Guess the writer's political affiliation: Democrat, Republican, Independent/Neither, or Can't tell.
+- **Emoções** — Avalie a intensidade de cada emoção (ansiedade, raiva, tristeza, alegria, otimismo, frustração, medo e esperança) em uma escala de 1 a 7.
+- **Sentimento** — Classifique o texto como Positivo, Neutro ou Negativo, e avalie em uma escala de 1 a 7.
+- **Fundamentos Morais** — Escolha o fundamento moral que melhor representa o texto entre: Cuidado, Justiça, Lealdade, Autoridade, Pureza, Liberdade, Honestidade e Autodisciplina. Depois, indique a orientação (individualizante ou vinculante).
+- **Inferência Política** — Estime o posicionamento político do autor: Esquerda, Direita, Centro/Outro ou Não é possível determinar.
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 .
-├── server.py              # Python server that loads data and saves annotations
-├── annotation_tool.html   # The annotation interface (single-page app)
-├── INSTRUCTIONS.html      # Step-by-step setup guide for annotators
-├── annotations_empty.csv  # Template CSV with texts to annotate (not tracked in git)
+├── server.py              # Servidor Python que carrega os dados e salva as anotações
+├── annotation_tool.html   # Interface de anotação (aplicação de página única)
+├── INSTRUCTIONS.html      # Guia passo a passo para anotadores
+├── annotations_empty.csv  # CSV modelo com os textos a serem anotados
+├── statements.txt         # Mapeamento de códigos de afirmações para o texto em português
 └── .gitignore
 ```
 
-## Requirements
+## Requisitos
 
-- **Python 3.6+** -- uses only the standard library, so you don't need to install any packages.
-- A modern web browser (Chrome, Firefox, Safari, or Edge).
+- **Python 3.6+** — usa apenas a biblioteca padrão, então não é necessário instalar nenhum pacote.
+- Um navegador moderno (Chrome, Firefox, Safari ou Edge).
 
-## Getting Started
+## Como Começar
 
-### 1. Prepare your data
+### 1. Prepare seus dados
 
-Drop a CSV file named `annotations_empty.csv` into the project root. It needs these columns:
+Coloque um arquivo CSV chamado `annotations_empty.csv` na raiz do projeto. Ele precisa ter estas colunas:
 
-| Column | What it contains |
+| Coluna | O que contém |
 |---|---|
-| `ResponseId` | A unique participant ID |
-| `X` | A unique row ID (the tool uses this as its annotation key) |
-| `statement` | A code for the political statement (e.g., `climate_change`, `gun_laws`) |
-| `agree` | Whether the participant agreed or disagreed |
-| `X_describe` | The participant's free-text response -- this is what annotators read and label |
+| `rowid` | ID único da linha (usado como chave de anotação e para unir ao dataframe principal) |
+| `ResponseId` | ID único do participante |
+| `statement` | Código da afirmação política (ex.: `climate_change`, `gun_laws`) |
+| `agree` | Se o participante concordou ou discordou (Concordo/Discordo/Não tenho certeza) |
+| `X_describe` | A resposta em texto livre do participante — é isto que os anotadores leem e classificam |
 
-### 2. Read the instructions
+### 2. Leia as instruções
 
-Before anything else, open `INSTRUCTIONS.html` in your browser. It explains the full annotation task -- what you'll read, what you'll label, and how to use the tool. It also walks you through installing Python and starting the server on both Mac and Windows.
+Antes de tudo, abra `INSTRUCTIONS.html` no seu navegador. Ele explica a tarefa completa de anotação — o que você vai ler, o que vai classificar e como usar a ferramenta. Também ensina como instalar o Python e iniciar o servidor no Mac e no Windows.
 
-### 3. Start the server
+### 3. Inicie o servidor
 
 ```bash
 python3 server.py        # Mac / Linux
 python server.py         # Windows
 ```
 
-You'll see a banner confirming the server is running at **http://localhost:8000**.
+Você verá um banner confirmando que o servidor está rodando em **http://localhost:8000**.
 
-### 4. Open the tool and annotate
+### 4. Abra a ferramenta e comece a anotar
 
-Go to [http://localhost:8000](http://localhost:8000) in your browser. Type in a username and click **Start Annotating**. The tool creates a personal output file for that username (`annotations_[username].csv`) and you're off.
+Acesse [http://localhost:8000](http://localhost:8000) no seu navegador. Digite um nome de usuário e clique em **Começar a Anotar**. A ferramenta cria um arquivo de saída pessoal para aquele usuário (`annotations_[usuario].csv`) e você pode começar.
 
-## How It Works
+## Como Funciona
 
-### The server (`server.py`)
+### O servidor (`server.py`)
 
-A small Python HTTP server -- no frameworks, no dependencies -- that does three things:
+Um pequeno servidor HTTP em Python — sem frameworks, sem dependências — que faz três coisas:
 
-1. **Serves the frontend** files (HTML, CSS, JS) from the project directory.
-2. **Loads the template data** from `annotations_empty.csv` and sends it to the browser.
-3. **Reads and writes each annotator's CSV** so progress persists across sessions.
+1. **Serve os arquivos do frontend** (HTML, CSS, JS) do diretório do projeto.
+2. **Carrega os dados do modelo** do `annotations_empty.csv` e os envia ao navegador.
+3. **Lê e grava o CSV de cada anotador** para que o progresso persista entre sessões.
 
-Here are the API endpoints it exposes:
+Estes são os endpoints da API que ele expõe:
 
-| Method | Endpoint | What it does |
+| Método | Endpoint | O que faz |
 |---|---|---|
-| `GET` | `/api/template` | Sends all rows from the template CSV |
-| `GET` | `/api/annotations?username=X` | Fetches a user's saved annotations |
-| `GET` | `/api/check-user?username=X` | Checks whether a user file already exists |
-| `POST` | `/api/init-user` | Creates a fresh `annotations_[username].csv` from the template |
-| `POST` | `/api/save` | Writes the current annotations to the user's CSV |
+| `GET` | `/api/template` | Envia todas as linhas do CSV modelo |
+| `GET` | `/api/annotations?username=X` | Busca as anotações salvas de um usuário |
+| `GET` | `/api/check-user?username=X` | Verifica se um arquivo de usuário já existe |
+| `GET` | `/api/list-users` | Lista todos os arquivos de anotadores existentes com contagem de progresso |
+| `POST` | `/api/init-user` | Cria um novo `annotations_[usuario].csv` a partir do modelo |
+| `POST` | `/api/save` | Grava as anotações atuais no CSV do usuário |
 
-### The frontend (`annotation_tool.html`)
+### O frontend (`annotation_tool.html`)
 
-Everything lives in a single HTML file -- styles, markup, and logic all in one place. Here's what it gives you:
+Tudo está em um único arquivo HTML — estilos, marcação e lógica em um só lugar. Aqui está o que ele oferece:
 
-- **Setup screen** -- Enter a username; the tool detects whether you have a previous session.
-- **Annotation interface** -- The text stays pinned at the top while you scroll through questions. A progress bar tracks how far along you are.
-- **Validation** -- You must answer every question before moving on.
-- **Dual saving** -- The tool writes to the server CSV *and* stashes a backup in the browser's `localStorage`, so you won't lose work even if the server hiccups.
-- **Session resumption** -- Come back later, type the same username, and pick up right where you left off.
-- **Navigation** -- Go forward, go back, or jump to any item by number.
-- **Completion screen** -- When you finish, download your annotations as a CSV or review them.
+- **Tela de configuração** — Digite um nome de usuário; a ferramenta detecta se você tem uma sessão anterior.
+- **Interface de anotação** — O texto permanece fixo no topo enquanto você navega pelas perguntas. Uma barra de progresso acompanha o seu avanço.
+- **Validação** — Você deve responder todas as perguntas antes de avançar.
+- **Duplo salvamento** — A ferramenta grava no CSV do servidor *e* armazena um backup no `localStorage` do navegador, para que você não perca trabalho mesmo se o servidor tiver problemas.
+- **Retomada de sessão** — Volte mais tarde, digite o mesmo nome de usuário e continue de onde parou.
+- **Navegação** — Avance, volte ou pule para qualquer item pelo número.
+- **Tela de conclusão** — Quando terminar, baixe suas anotações como CSV ou revise-as.
 
-### Output format
+### Formato de saída
 
-The tool saves each annotator's work to `annotations_[username].csv`. This file contains the original data columns plus all the annotation columns:
+A ferramenta salva o trabalho de cada anotador em `annotations_[usuario].csv`. Este arquivo contém as colunas originais dos dados mais todas as colunas de anotação:
 
 ```
-annotator_id, emotion_categorical, emotion_anger_likert, emotion_joy_likert,
-emotion_sadness_likert, emotion_optimism_likert, sentiment_categorical,
-sentiment_likert, mf_care, mf_fairness, mf_loyalty, mf_authority,
-mf_purity, mf_liberty, mf_honesty, mf_selfdiscipline, political_guess
+annotator_id, emotion_anxiety_likert, emotion_anger_likert, emotion_sadness_likert,
+emotion_joy_likert, emotion_optimism_likert, emotion_frustration_likert,
+emotion_fear_likert, emotion_hope_likert, sentiment_categorical,
+sentiment_likert, mf_best, mf_orientation, political_guess
 ```
 
-## For Annotators
+## Para Anotadores
 
-If you're an annotator, open `INSTRUCTIONS.html` in your browser. It walks you through everything:
+Se você é um anotador, abra `INSTRUCTIONS.html` no seu navegador. Ele explica tudo:
 
-- How to install Python (Mac and Windows)
-- How to start and stop the server
-- How to use the annotation interface
-- How to take breaks and resume later
-- What to do when something goes wrong
+- Como instalar o Python (Mac e Windows)
+- Como iniciar e parar o servidor
+- Como usar a interface de anotação
+- Como fazer pausas e continuar depois
+- O que fazer quando algo dá errado
 
-## Troubleshooting
+## Solução de Problemas
 
-**"Address already in use"** -- A previous server instance is still running. On Mac, kill it with `lsof -ti:8000 | xargs kill -9`. On Windows, close all terminal windows and try again.
+**"Address already in use"** — Uma instância anterior do servidor ainda está rodando. No Mac, encerre com `lsof -ti:8000 | xargs kill -9`. No Windows, feche todas as janelas do terminal e tente novamente.
 
-**"python not found"** -- You need to install Python 3 from [python.org](https://www.python.org/downloads/). On Windows, make sure you check "Add Python to PATH" during installation.
+**"python not found"** — Você precisa instalar o Python 3 em [python.org](https://www.python.org/downloads/). No Windows, certifique-se de marcar "Add Python to PATH" durante a instalação.
 
-**Page won't load** -- Double-check that the server is running in your terminal and that you're using `http://` (not `https://`).
+**A página não carrega** — Verifique se o servidor está rodando no seu terminal e se você está usando `http://` (não `https://`).
 
-**Progress not restored** -- Make sure you type the exact same username you used before, then click **Resume Session**.
+**Progresso não restaurado** — Certifique-se de digitar exatamente o mesmo nome de usuário que usou antes e clique em **Retomar Sessão**.

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Annotation Tool</title>
+    <title>Ferramenta de Anotação de Textos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -449,7 +449,7 @@
         }
 
         .question {
-            margin-bottom: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
         .question:last-child {
@@ -458,7 +458,7 @@
 
         .question-text {
             font-weight: 500;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
@@ -467,6 +467,147 @@
             color: var(--text-muted);
             margin-bottom: 0.75rem;
             font-style: italic;
+        }
+
+        /* Skip banner */
+        .skip-banner {
+            background: var(--bg-secondary);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .skip-banner-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .skip-banner-title {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .skip-banner-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .skip-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skip-reason-select {
+            padding: 0.5rem 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .skip-reason-select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .btn-skip {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            border: 2px solid #c4943d;
+            background: #fff8eb;
+            color: #8a6b20;
+            transition: all 0.2s;
+        }
+
+        .btn-skip:hover {
+            background: #c4943d;
+            color: white;
+        }
+
+        /* Skipped state */
+        .skip-active-banner {
+            background: #fff3cd;
+            border: 2px solid #c4943d;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .skip-active-banner.show {
+            display: flex;
+        }
+
+        .skip-active-text {
+            font-weight: 500;
+            color: #8a6b20;
+        }
+
+        .btn-unskip {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: inherit;
+            cursor: pointer;
+            border: 2px solid var(--accent-primary);
+            background: var(--accent-light);
+            color: var(--accent-primary);
+            transition: all 0.2s;
+        }
+
+        .btn-unskip:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .annotation-questions.hidden-by-skip {
+            opacity: 0.25;
+            pointer-events: none;
+            filter: grayscale(0.5);
+            transition: all 0.3s;
+        }
+
+        /* Open-ended text input */
+        .open-ended-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: var(--bg-secondary);
+        }
+
+        .open-ended-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px var(--accent-light);
+        }
+
+        .question.error .open-ended-input {
+            border-color: #e8b4b4;
         }
 
         /* Radio Options */
@@ -506,32 +647,32 @@
         .likert-container {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.25rem;
         }
 
         .likert-labels {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            padding: 0 0.5rem;
+            padding: 0 0.25rem;
         }
 
         .likert-scale {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.35rem;
         }
 
         .likert-btn {
             flex: 1;
-            padding: 0.75rem 0;
+            padding: 0.4rem 0;
             border: 2px solid var(--border);
-            border-radius: 8px;
+            border-radius: 6px;
             background: var(--bg-secondary);
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-family: inherit;
         }
 
@@ -544,6 +685,108 @@
             border-color: var(--accent-primary);
             background: var(--accent-primary);
             color: white;
+        }
+
+        /* Emotion Matrix */
+        .emotion-matrix {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .emotion-matrix .matrix-header {
+            display: flex;
+            align-items: flex-end;
+            padding: 0.6rem 0 0.3rem;
+            background: var(--bg-accent);
+        }
+
+        .emotion-matrix .matrix-label-col {
+            width: 110px;
+            min-width: 110px;
+            flex-shrink: 0;
+        }
+
+        .emotion-matrix .matrix-scale-col {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 0 0.5rem;
+            gap: 0.1rem;
+        }
+
+        .emotion-matrix .matrix-endpoints {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            padding: 0 0.25rem;
+        }
+
+        .emotion-matrix .matrix-numbers {
+            display: flex;
+        }
+
+        .emotion-matrix .matrix-numbers span {
+            flex: 1;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .emotion-matrix .matrix-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 0.35rem 0;
+            margin-bottom: 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .emotion-matrix .matrix-row:nth-child(odd) {
+            background: rgba(0,0,0,0.015);
+        }
+
+        .emotion-matrix .matrix-label {
+            width: 110px;
+            min-width: 110px;
+            flex-shrink: 0;
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding-left: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .emotion-matrix .likert-scale {
+            flex: 1;
+            padding: 0 0.5rem;
+            gap: 0.2rem;
+        }
+
+        .emotion-matrix .likert-btn {
+            flex: 1;
+            height: 28px;
+            padding: 0;
+            border-width: 1.5px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 36px;
+            margin: 0 auto;
+        }
+
+        .emotion-matrix .validation-error {
+            width: 100%;
+            padding-left: 110px;
+            margin-top: 0;
+            font-size: 0.75rem;
+        }
+
+        .emotion-matrix .question.error .matrix-label {
+            color: #c45a5a;
         }
 
         /* Yes/No Toggle */
@@ -762,13 +1005,114 @@
             font-weight: 600;
             margin-left: 0.5rem;
         }
+
+        /* Existing sessions */
+        .existing-sessions {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .existing-sessions-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .session-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1rem;
+            background: var(--accent-light);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-card:hover {
+            border-color: var(--accent-secondary);
+            background: white;
+        }
+
+        .session-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .session-username {
+            font-weight: 600;
+            color: var(--accent-primary);
+            font-size: 0.95rem;
+        }
+
+        .session-progress {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .session-resume-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-secondary);
+        }
+
+        /* Confirmation overlay */
+        .confirm-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 300;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .confirm-overlay.show {
+            display: flex;
+        }
+
+        .confirm-box {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 440px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .confirm-box h3 {
+            color: #c45a5a;
+            margin-bottom: 0.75rem;
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.3rem;
+        }
+
+        .confirm-box p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .confirm-buttons {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">📝 Annotation Tool</div>
+            <div class="logo">📝 Ferramenta de Anotação</div>
             <div class="progress-container" id="progressContainer" style="display: none;">
                 <div class="progress-bar-wrapper">
                     <div class="progress-bar" id="progressBar" style="width: 0%"></div>
@@ -776,10 +1120,10 @@
                 <span class="progress-text" id="progressText">0 / 0</span>
             </div>
             <button class="instructions-toggle" id="instructionsBtn">
-                📖 Instructions
+                📖 Instruções
             </button>
             <div class="annotator-badge" id="annotatorBadge" style="display: none;">
-                Annotator: <span id="annotatorDisplay"></span>
+                Anotador: <span id="annotatorDisplay"></span>
             </div>
         </div>
     </header>
@@ -788,55 +1132,61 @@
     <div class="instructions-panel" id="instructionsPanel">
         <div class="instructions-content">
             <button class="instructions-close" id="instructionsClose">×</button>
-            <h2>📖 Annotation Instructions</h2>
+            <h2>📖 Instruções de Anotação</h2>
             
-            <h3>Overview</h3>
-            <p>You will be reading short text responses and annotating them based on emotions, sentiment, moral foundations, and political inference.</p>
+            <h3>Visão Geral</h3>
+            <p>Você lerá respostas curtas de texto e as anotará com base em emoção, sentimento, fundamentos morais e inferência política.</p>
             
-            <h3>How to Use This Tool</h3>
+            <h3>Como Usar Esta Ferramenta</h3>
             <ul>
-                <li><strong>Enter your username</strong> on the start screen - this creates your personal annotation file</li>
-                <li><strong>Read each text carefully</strong> before answering the questions</li>
-                <li><strong>Answer all questions</strong> for each text before clicking "Save & Next"</li>
-                <li><strong>Your progress is saved automatically</strong> after each annotation</li>
-                <li>You can <strong>close the browser and resume later</strong> - just enter the same username</li>
+                <li><strong>Digite seu nome de usuário</strong> na tela inicial — isso cria seu arquivo pessoal de anotações</li>
+                <li><strong>Leia cada texto com atenção</strong> antes de responder às perguntas</li>
+                <li><strong>Responda todas as perguntas</strong> de cada texto antes de clicar em "Salvar & Próximo"</li>
+                <li><strong>Seu progresso é salvo automaticamente</strong> após cada anotação</li>
+                <li>Você pode <strong>fechar o navegador e continuar depois</strong> — basta digitar o mesmo nome de usuário</li>
             </ul>
             
-            <h3>Annotation Categories</h3>
+            <h3>Categorias de Anotação</h3>
             
-            <h4 style="color: var(--text-primary); margin-top: 1rem;">😊 Emotions</h4>
+            <h4 style="color: var(--text-primary); margin-top: 1rem;">😊 Emoções</h4>
             <ul>
-                <li><strong>Primary Emotion:</strong> Select the emotion that best represents the writer's mental state (Anger, Joy, Sadness, or Optimism)</li>
-                <li><strong>Emotion Intensity:</strong> Rate how much of each emotion (anger, joy, sadness, optimism) is present on a scale of 1-7</li>
+                <li><strong>Intensidade da Emoção:</strong> Avalie o quanto de cada emoção (ansiedade, tristeza, raiva, alegria, otimismo, frustração, medo, esperança) está presente em uma escala de 1 a 7</li>
             </ul>
             
-            <h4 style="color: var(--text-primary); margin-top: 1rem;">💭 Sentiment</h4>
+            <h4 style="color: var(--text-primary); margin-top: 1rem;">💭 Sentimento</h4>
             <ul>
-                <li><strong>Sentiment Category:</strong> Is the overall sentiment Positive, Neutral, or Negative?</li>
-                <li><strong>Sentiment Scale:</strong> Rate from 1 (very negative) to 7 (very positive)</li>
+                <li><strong>Categoria do Sentimento:</strong> O sentimento geral é Positivo, Neutro ou Negativo?</li>
+                <li><strong>Escala de Sentimento:</strong> Avalie de 1 (muito negativo) a 7 (muito positivo)</li>
             </ul>
             
-            <h4 style="color: var(--text-primary); margin-top: 1rem;">⚖️ Moral Foundations</h4>
-            <p>For each moral foundation, select "Yes" if the text expresses or relates to that value, "No" if it doesn't:</p>
+            <h4 style="color: var(--text-primary); margin-top: 1rem;">⚖️ Fundamentos Morais</h4>
+            <p>Você responderá duas perguntas sobre fundamentos morais:</p>
             <ul>
-                        <li><strong>Care:</strong> Compassion, kindness, and concern for the suffering of others</li>
-                        <li><strong>Fairness:</strong> Cooperation, trustworthiness, and treating people equally</li>
-                        <li><strong>Loyalty:</strong> Faithfulness to one's group, family, or nation; not betraying others</li>
-                        <li><strong>Authority:</strong> Deference toward legitimate authorities and respect for tradition</li>
-                        <li><strong>Purity:</strong> Avoiding disgust, contamination; maintaining cleanliness and sanctity</li>
-                        <li><strong>Liberty:</strong> Individual freedom, autonomy, and resisting domination</li>
-                        <li><strong>Honesty:</strong> Being truthful, sincere, and open</li>
-                        <li><strong>Self-discipline:</strong> Persistence, self-control, and resisting temptation</li>
+                <li><strong>Fundamento Mais Representativo:</strong> Escolha o único fundamento moral que melhor representa o texto. Opções:</li>
+            </ul>
+            <ul style="padding-left: 3rem; margin-top: -0.5rem;">
+                <li><strong>Cuidado:</strong> Compaixão, bondade e preocupação com o sofrimento alheio</li>
+                <li><strong>Justiça:</strong> Cooperação, confiabilidade e tratamento igualitário</li>
+                <li><strong>Autoridade:</strong> Deferência a autoridades legítimas e respeito à tradição</li>
+                <li><strong>Lealdade:</strong> Fidelidade ao grupo, família ou nação; não trair os outros</li>
+                <li><strong>Pureza:</strong> Evitar repugnância, contaminação; manter limpeza e santidade</li>
+                <li><strong>Liberdade:</strong> Liberdade individual, autonomia e resistência à dominação</li>
+                <li><strong>Honestidade:</strong> Ser verdadeiro, sincero e transparente</li>
+                <li><strong>Autodisciplina:</strong> Persistência, autocontrole e resistência à tentação</li>
+                <li><strong>Não tenho certeza / Nenhum</strong></li>
+            </ul>
+            <ul>
+                <li><strong>Orientação do Fundamento Moral:</strong> O texto enfatiza valores <em>individualizantes</em> (direitos individuais, cuidado, justiça), valores <em>vinculantes</em> (coesão grupal, lealdade, autoridade, pureza), <em>nenhum</em>, ou <em>não é possível determinar</em>?</li>
             </ul>
             
-            <h4 style="color: var(--text-primary); margin-top: 1rem;">🗳️ Political Inference</h4>
-            <p>Based solely on the text, which political party do you think the writer most likely identifies with? Select "Can't tell" if there's insufficient information.</p>
+            <h4 style="color: var(--text-primary); margin-top: 1rem;">🗳️ Inferência Política</h4>
+            <p>Com base apenas no texto, com qual posição política você acha que o autor mais provavelmente se identifica? Selecione "Não é possível determinar" se não houver informação suficiente.</p>
             
-            <h3>Tips</h3>
+            <h3>Dicas</h3>
             <ul>
-                <li>The text you're annotating stays visible at the top as you scroll</li>
-                <li>Take breaks if needed - your progress is always saved</li>
-                <li>If you're unsure, go with your best judgment</li>
+                <li>O texto que você está anotando permanece visível no topo enquanto você navega</li>
+                <li>Faça pausas se necessário — seu progresso está sempre salvo</li>
+                <li>Se estiver em dúvida, use seu melhor julgamento</li>
             </ul>
         </div>
     </div>
@@ -844,25 +1194,30 @@
     <!-- Setup Screen -->
     <main class="main-container">
         <div class="setup-screen" id="setupScreen">
-            <h1>Welcome, Annotator!</h1>
-            <p>Enter your username to begin annotating. Your progress is saved automatically after each annotation to your personal file.</p>
+            <h1>Bem-vindo(a), Anotador(a)!</h1>
+            <p>Digite seu nome de usuário para começar a anotar. Seu progresso é salvo automaticamente após cada anotação em seu arquivo pessoal.</p>
             
             <div class="setup-form">
                 <div class="form-group">
-                    <label for="annotatorId">Your Username</label>
-                    <input type="text" id="annotatorId" placeholder="e.g., john_doe">
+                    <label for="annotatorId">Seu Nome de Usuário</label>
+                    <input type="text" id="annotatorId" placeholder="ex.: joao_silva">
                     <small style="color: var(--text-muted); display: block; margin-top: 0.5rem;">
-                        Your annotations will be saved to: <strong id="filenamePreview">annotations_[username].csv</strong>
+                        Suas anotações serão salvas em: <strong id="filenamePreview">annotations_[usuario].csv</strong>
                     </small>
                 </div>
                 
                 <div id="dataStatus" style="padding: 1rem; background: var(--bg-accent); border-radius: 8px; margin-bottom: 1rem;">
-                    <span id="loadingStatus">Loading data...</span>
+                    <span id="loadingStatus">Carregando dados...</span>
+                </div>
+
+                <div id="existingSessions" class="existing-sessions" style="display: none;">
+                    <div class="existing-sessions-label">Sessões existentes encontradas neste computador</div>
+                    <div id="sessionsList"></div>
                 </div>
 
                 <div id="buttonContainer">
-                    <button class="btn btn-primary btn-large" id="resumeBtn" style="display: none; width: 100%; margin-bottom: 0.75rem;">Resume Previous Session</button>
-                    <button class="btn btn-primary" id="startBtn" disabled style="width: 100%;">Start Annotating</button>
+                    <button class="btn btn-primary btn-large" id="resumeBtn" style="display: none; width: 100%; margin-bottom: 0.75rem;">Retomar Sessão Anterior</button>
+                    <button class="btn btn-primary" id="startBtn" disabled style="width: 100%;">Começar a Anotar</button>
                 </div>
             </div>
         </div>
@@ -872,39 +1227,64 @@
             <!-- Text Display -->
             <div class="text-card fade-in">
                 <div class="context-box" id="contextBox" style="background: var(--bg-accent); padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;">
-                    <div style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Context: The participant was asked about this statement</div>
+                    <div style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem;">Contexto: O participante foi questionado sobre a seguinte afirmação</div>
                     <div id="statementText" style="color: var(--text-primary); font-weight: 500; margin-bottom: 0.5rem;"></div>
                     <div id="agreeText" style="display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.8rem; font-weight: 600;"></div>
                 </div>
-                <div class="text-label" style="margin-bottom: 0.5rem;">Their Response</div>
+                <div class="text-label" style="margin-bottom: 0.5rem;">Resposta do Participante</div>
                 <div class="text-content" id="textContent"></div>
             </div>
 
+            <!-- Skip Banner -->
+            <div class="skip-banner" id="skipBanner">
+                <div class="skip-banner-left">
+                    <div class="skip-banner-title">Não consegue anotar este texto?</div>
+                    <div class="skip-banner-hint">Use isto se a resposta for sem sentido, em branco, em outro idioma, etc.</div>
+                </div>
+                <div class="skip-controls">
+                    <select class="skip-reason-select" id="skipReason">
+                        <option value="">Motivo…</option>
+                        <option value="gibberish">Texto sem sentido</option>
+                        <option value="blank">Em branco / vazio</option>
+                        <option value="other_language">Idioma diferente</option>
+                        <option value="unclear">Confuso / ininterpretável</option>
+                        <option value="other">Outro</option>
+                    </select>
+                    <button class="btn-skip" id="skipBtn">Pular & Próximo →</button>
+                </div>
+            </div>
+
+            <!-- Skipped state banner (shown when navigating back to a skipped item) -->
+            <div class="skip-active-banner" id="skipActiveBanner">
+                <div class="skip-active-text">⚠ Este item foi pulado — <span id="skipActiveReason"></span></div>
+                <button class="btn-unskip" id="unskipBtn">Desfazer e anotar</button>
+            </div>
+
+            <div class="annotation-questions" id="annotationQuestions">
             <!-- Emotions Section -->
             <div class="question-section fade-in" style="animation-delay: 0.1s;">
                 <div class="section-header">
                     <div class="section-icon emotions">😊</div>
-                    <h2 class="section-title">Emotions</h2>
+                    <h2 class="section-title">Emoções</h2>
                 </div>
 
-                <div class="question" data-field="emotion_categorical">
-                    <div class="question-text">Which emotion best represents the mental state of the writer?</div>
-                    <div class="options-grid">
-                        <label class="option-btn"><input type="radio" name="emotion_categorical" value="1">Anger</label>
-                        <label class="option-btn"><input type="radio" name="emotion_categorical" value="2">Joy</label>
-                        <label class="option-btn"><input type="radio" name="emotion_categorical" value="3">Sadness</label>
-                        <label class="option-btn"><input type="radio" name="emotion_categorical" value="4">Optimism</label>
-                    </div>
-                    <div class="validation-error">Please select an option</div>
-                </div>
-
-                <div class="question" data-field="emotion_anger_likert">
-                    <div class="question-text">How much <strong>anger</strong> is present in this text?</div>
-                    <div class="likert-container">
-                        <div class="likert-labels">
-                            <span>No anger</span>
-                            <span>A great deal</span>
+                <div class="question-text" style="margin-bottom: 0.75rem;">Quanto de cada emoção está presente neste texto?</div>
+                <div class="emotion-matrix">
+                    <div class="matrix-header">
+                        <div class="matrix-label-col"></div>
+                        <div class="matrix-scale-col">
+                            <div class="matrix-endpoints">
+                                <span>Nenhuma</span>
+                                <span>Muita</span>
+                            </div>
+                            <div class="matrix-numbers">
+                                <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="matrix-row question" data-field="emotion_anxiety_likert">
+                        <div class="matrix-label">Ansiedade</div>
                         <div class="likert-scale">
                             <button class="likert-btn" data-value="1">1</button>
                             <button class="likert-btn" data-value="2">2</button>
@@ -914,17 +1294,11 @@
                             <button class="likert-btn" data-value="6">6</button>
                             <button class="likert-btn" data-value="7">7</button>
                         </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
                     </div>
-                    <div class="validation-error">Please select a value</div>
-                </div>
 
-                <div class="question" data-field="emotion_joy_likert">
-                    <div class="question-text">How much <strong>joy</strong> is present in this text?</div>
-                    <div class="likert-container">
-                        <div class="likert-labels">
-                            <span>No joy</span>
-                            <span>A great deal</span>
-                        </div>
+                    <div class="matrix-row question" data-field="emotion_anger_likert">
+                        <div class="matrix-label">Raiva</div>
                         <div class="likert-scale">
                             <button class="likert-btn" data-value="1">1</button>
                             <button class="likert-btn" data-value="2">2</button>
@@ -934,17 +1308,11 @@
                             <button class="likert-btn" data-value="6">6</button>
                             <button class="likert-btn" data-value="7">7</button>
                         </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
                     </div>
-                    <div class="validation-error">Please select a value</div>
-                </div>
 
-                <div class="question" data-field="emotion_sadness_likert">
-                    <div class="question-text">How much <strong>sadness</strong> is present in this text?</div>
-                    <div class="likert-container">
-                        <div class="likert-labels">
-                            <span>No sadness</span>
-                            <span>A great deal</span>
-                        </div>
+                    <div class="matrix-row question" data-field="emotion_sadness_likert">
+                        <div class="matrix-label">Tristeza</div>
                         <div class="likert-scale">
                             <button class="likert-btn" data-value="1">1</button>
                             <button class="likert-btn" data-value="2">2</button>
@@ -954,17 +1322,11 @@
                             <button class="likert-btn" data-value="6">6</button>
                             <button class="likert-btn" data-value="7">7</button>
                         </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
                     </div>
-                    <div class="validation-error">Please select a value</div>
-                </div>
 
-                <div class="question" data-field="emotion_optimism_likert">
-                    <div class="question-text">How much <strong>optimism</strong> is present in this text?</div>
-                    <div class="likert-container">
-                        <div class="likert-labels">
-                            <span>No optimism</span>
-                            <span>A great deal</span>
-                        </div>
+                    <div class="matrix-row question" data-field="emotion_joy_likert">
+                        <div class="matrix-label">Alegria</div>
                         <div class="likert-scale">
                             <button class="likert-btn" data-value="1">1</button>
                             <button class="likert-btn" data-value="2">2</button>
@@ -974,8 +1336,64 @@
                             <button class="likert-btn" data-value="6">6</button>
                             <button class="likert-btn" data-value="7">7</button>
                         </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
                     </div>
-                    <div class="validation-error">Please select a value</div>
+
+                    <div class="matrix-row question" data-field="emotion_optimism_likert">
+                        <div class="matrix-label">Otimismo</div>
+                        <div class="likert-scale">
+                            <button class="likert-btn" data-value="1">1</button>
+                            <button class="likert-btn" data-value="2">2</button>
+                            <button class="likert-btn" data-value="3">3</button>
+                            <button class="likert-btn" data-value="4">4</button>
+                            <button class="likert-btn" data-value="5">5</button>
+                            <button class="likert-btn" data-value="6">6</button>
+                            <button class="likert-btn" data-value="7">7</button>
+                        </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
+                    </div>
+
+                    <div class="matrix-row question" data-field="emotion_frustration_likert">
+                        <div class="matrix-label">Frustração</div>
+                        <div class="likert-scale">
+                            <button class="likert-btn" data-value="1">1</button>
+                            <button class="likert-btn" data-value="2">2</button>
+                            <button class="likert-btn" data-value="3">3</button>
+                            <button class="likert-btn" data-value="4">4</button>
+                            <button class="likert-btn" data-value="5">5</button>
+                            <button class="likert-btn" data-value="6">6</button>
+                            <button class="likert-btn" data-value="7">7</button>
+                        </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
+                    </div>
+
+                    <div class="matrix-row question" data-field="emotion_fear_likert">
+                        <div class="matrix-label">Medo</div>
+                        <div class="likert-scale">
+                            <button class="likert-btn" data-value="1">1</button>
+                            <button class="likert-btn" data-value="2">2</button>
+                            <button class="likert-btn" data-value="3">3</button>
+                            <button class="likert-btn" data-value="4">4</button>
+                            <button class="likert-btn" data-value="5">5</button>
+                            <button class="likert-btn" data-value="6">6</button>
+                            <button class="likert-btn" data-value="7">7</button>
+                        </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
+                    </div>
+
+                    <div class="matrix-row question" data-field="emotion_hope_likert">
+                        <div class="matrix-label">Esperança</div>
+                        <div class="likert-scale">
+                            <button class="likert-btn" data-value="1">1</button>
+                            <button class="likert-btn" data-value="2">2</button>
+                            <button class="likert-btn" data-value="3">3</button>
+                            <button class="likert-btn" data-value="4">4</button>
+                            <button class="likert-btn" data-value="5">5</button>
+                            <button class="likert-btn" data-value="6">6</button>
+                            <button class="likert-btn" data-value="7">7</button>
+                        </div>
+                        <div class="validation-error">Por favor, selecione um valor</div>
+                    </div>
                 </div>
             </div>
 
@@ -983,25 +1401,25 @@
             <div class="question-section fade-in" style="animation-delay: 0.2s;">
                 <div class="section-header">
                     <div class="section-icon sentiment">💭</div>
-                    <h2 class="section-title">Sentiment</h2>
+                    <h2 class="section-title">Sentimento</h2>
                 </div>
 
                 <div class="question" data-field="sentiment_categorical">
-                    <div class="question-text">Is the sentiment of this text positive, neutral, or negative?</div>
+                    <div class="question-text">O sentimento deste texto é positivo, neutro ou negativo?</div>
                     <div class="options-grid">
-                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="1">Positive</label>
-                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="2">Neutral</label>
-                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="3">Negative</label>
+                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="1">Positivo</label>
+                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="2">Neutro</label>
+                        <label class="option-btn"><input type="radio" name="sentiment_categorical" value="3">Negativo</label>
                     </div>
-                    <div class="validation-error">Please select an option</div>
+                    <div class="validation-error">Por favor, selecione uma opção</div>
                 </div>
 
                 <div class="question" data-field="sentiment_likert">
-                    <div class="question-text">How negative or positive is this text?</div>
+                    <div class="question-text">Quão negativo ou positivo é este texto?</div>
                     <div class="likert-container">
                         <div class="likert-labels">
-                            <span>Very negative</span>
-                            <span>Very positive</span>
+                            <span>Muito negativo</span>
+                            <span>Muito positivo</span>
                         </div>
                         <div class="likert-scale">
                             <button class="likert-btn" data-value="1">1</button>
@@ -1013,7 +1431,7 @@
                             <button class="likert-btn" data-value="7">7</button>
                         </div>
                     </div>
-                    <div class="validation-error">Please select a value</div>
+                    <div class="validation-error">Por favor, selecione um valor</div>
                 </div>
             </div>
 
@@ -1021,106 +1439,37 @@
             <div class="question-section fade-in" style="animation-delay: 0.3s;">
                 <div class="section-header">
                     <div class="section-icon moral">⚖️</div>
-                    <h2 class="section-title">Moral Foundations</h2>
+                    <h2 class="section-title">Fundamentos Morais</h2>
                 </div>
-                <div class="question-hint">Does this text express any of the following moral foundations?</div>
 
-                <div class="moral-grid">
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_care">
-                            <div class="question-text">Care</div>
-                            <div class="moral-definition">Compassion, kindness, and concern for the suffering of others</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
+                <div class="question" data-field="mf_best">
+                    <div class="question-text">Qual <strong>fundamento moral</strong> melhor representa este texto?</div>
+                    <div class="question-hint">Escolha o fundamento que melhor se encaixa. Consulte o painel de Instruções para definições.</div>
+                    <div class="options-grid">
+                        <label class="option-btn"><input type="radio" name="mf_best" value="1">Cuidado</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="2">Justiça</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="3">Autoridade</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="4">Lealdade</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="5">Pureza</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="6">Liberdade</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="7">Honestidade</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="8">Autodisciplina</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="9">Não tenho certeza</label>
+                        <label class="option-btn"><input type="radio" name="mf_best" value="0">Nenhum</label>
                     </div>
+                    <div class="validation-error">Por favor, selecione uma opção</div>
+                </div>
 
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_fairness">
-                            <div class="question-text">Fairness</div>
-                            <div class="moral-definition">Cooperation, trustworthiness, and treating people equally</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
+                <div class="question" data-field="mf_orientation" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+                    <div class="question-text">Qual <strong>orientação de fundamento moral</strong> este texto mais expressa?</div>
+                    <div class="question-hint">Individualizante = direitos individuais independente do grupo (cuidado, justiça). Vinculante = coesão grupal (lealdade, autoridade, pureza).</div>
+                    <div class="options-grid">
+                        <label class="option-btn"><input type="radio" name="mf_orientation" value="1">Individualizante</label>
+                        <label class="option-btn"><input type="radio" name="mf_orientation" value="2">Vinculante</label>
+                        <label class="option-btn"><input type="radio" name="mf_orientation" value="3">Nenhuma</label>
+                        <label class="option-btn"><input type="radio" name="mf_orientation" value="0">Não é possível determinar</label>
                     </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_loyalty">
-                            <div class="question-text">Loyalty</div>
-                            <div class="moral-definition">Faithfulness to one's group, family, or nation; not betraying others</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_authority">
-                            <div class="question-text">Authority</div>
-                            <div class="moral-definition">Deference toward legitimate authorities and respect for tradition</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_purity">
-                            <div class="question-text">Purity</div>
-                            <div class="moral-definition">Avoiding disgust, contamination; maintaining cleanliness and sanctity</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_liberty">
-                            <div class="question-text">Liberty</div>
-                            <div class="moral-definition">Individual freedom, autonomy, and resisting domination</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_honesty">
-                            <div class="question-text">Honesty</div>
-                            <div class="moral-definition">Being truthful, sincere, and open</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
-
-                    <div class="moral-item">
-                        <div class="question" data-field="mf_selfdiscipline">
-                            <div class="question-text">Self-discipline</div>
-                            <div class="moral-definition">Persistence, self-control, and resisting temptation</div>
-                            <div class="yesno-container">
-                                <button class="yesno-btn yes" data-value="1">Yes</button>
-                                <button class="yesno-btn no" data-value="2">No</button>
-                            </div>
-                            <div class="validation-error">Please select</div>
-                        </div>
-                    </div>
+                    <div class="validation-error">Por favor, selecione uma opção</div>
                 </div>
             </div>
 
@@ -1128,35 +1477,37 @@
             <div class="question-section fade-in" style="animation-delay: 0.4s;">
                 <div class="section-header">
                     <div class="section-icon political">🗳️</div>
-                    <h2 class="section-title">Political Inference</h2>
+                    <h2 class="section-title">Inferência Política</h2>
                 </div>
 
                 <div class="question" data-field="political_guess">
-                    <div class="question-text">Based on this text, which political party do you think the writer most likely identifies with?</div>
+                    <div class="question-text">Com base neste texto, com qual posição política você acha que o autor mais provavelmente se identifica?</div>
                     <div class="options-grid">
-                        <label class="option-btn"><input type="radio" name="political_guess" value="1">Democrat</label>
-                        <label class="option-btn"><input type="radio" name="political_guess" value="2">Republican</label>
-                        <label class="option-btn"><input type="radio" name="political_guess" value="3">Independent/Neither</label>
-                        <label class="option-btn"><input type="radio" name="political_guess" value="4">Can't tell</label>
+                        <label class="option-btn"><input type="radio" name="political_guess" value="1">Esquerda</label>
+                        <label class="option-btn"><input type="radio" name="political_guess" value="2">Direita</label>
+                        <label class="option-btn"><input type="radio" name="political_guess" value="3">Centro/Outro</label>
+                        <label class="option-btn"><input type="radio" name="political_guess" value="4">Não é possível determinar</label>
                     </div>
-                    <div class="validation-error">Please select an option</div>
+                    <div class="validation-error">Por favor, selecione uma opção</div>
                 </div>
             </div>
+
+            </div><!-- /annotation-questions -->
 
             <!-- Navigation -->
             <div class="nav-container">
                 <div class="nav-info">
                     <div class="nav-hint">
-                        <span id="currentIndex">1</span> of <span id="totalItems">0</span> items
+                        <span id="currentIndex">1</span> de <span id="totalItems">0</span> itens
                     </div>
                     <div class="nav-jump">
-                        Jump to: <input type="number" id="jumpInput" min="1"> 
-                        <button id="jumpBtn">Go</button>
+                        Ir para: <input type="number" id="jumpInput" min="1"> 
+                        <button id="jumpBtn">Ir</button>
                     </div>
                 </div>
                 <div class="nav-buttons">
-                    <button class="btn btn-secondary" id="prevBtn">← Previous</button>
-                    <button class="btn btn-primary" id="nextBtn">Save & Next →</button>
+                    <button class="btn btn-secondary" id="prevBtn">← Anterior</button>
+                    <button class="btn btn-primary" id="nextBtn">Salvar & Próximo →</button>
                 </div>
             </div>
         </div>
@@ -1164,14 +1515,26 @@
         <!-- Complete Screen -->
         <div class="complete-screen" id="completeScreen">
             <div class="complete-icon">🎉</div>
-            <h2>All Done!</h2>
-            <p>You've completed all annotations. Thank you for your hard work!</p>
-            <button class="btn btn-primary" id="downloadBtn">Download Annotations (CSV)</button>
+            <h2>Tudo Pronto!</h2>
+            <p>Você completou todas as anotações. Obrigado(a) pelo seu trabalho!</p>
+            <button class="btn btn-primary" id="downloadBtn">Baixar Anotações (CSV)</button>
             <div style="margin-top: 1rem;">
-                <button class="btn btn-secondary" id="reviewBtn">Review Annotations</button>
+                <button class="btn btn-secondary" id="reviewBtn">Revisar Anotações</button>
             </div>
         </div>
     </main>
+
+    <!-- Confirmation Dialog -->
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-box">
+            <h3>Começar do Zero?</h3>
+            <p id="confirmMessage">Um arquivo de anotações existente foi encontrado para este usuário. Começar do zero irá <strong>apagar todo o progresso anterior</strong>. Tem certeza?</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-secondary" id="confirmCancel">Cancelar</button>
+                <button class="btn btn-primary" id="confirmProceed" style="background: #c45a5a;">Sim, Começar do Zero</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast -->
     <div class="toast" id="toast"></div>
@@ -1182,7 +1545,7 @@
         let state = {
             annotatorId: '',
             data: [],
-            annotations: {},  // keyed by unique row identifier (X value)
+            annotations: {},  // keyed by unique row identifier (rowid value)
             currentIndex: 0,
             isComplete: false,
             serverMode: true  // Whether we're running with the Python server
@@ -1225,41 +1588,53 @@
             jumpBtn: $('jumpBtn'),
             instructionsBtn: $('instructionsBtn'),
             instructionsPanel: $('instructionsPanel'),
-            instructionsClose: $('instructionsClose')
+            instructionsClose: $('instructionsClose'),
+            existingSessions: $('existingSessions'),
+            sessionsList: $('sessionsList'),
+            confirmOverlay: $('confirmOverlay'),
+            confirmCancel: $('confirmCancel'),
+            confirmProceed: $('confirmProceed'),
+            skipBanner: $('skipBanner'),
+            skipReason: $('skipReason'),
+            skipBtn: $('skipBtn'),
+            skipActiveBanner: $('skipActiveBanner'),
+            skipActiveReason: $('skipActiveReason'),
+            unskipBtn: $('unskipBtn'),
+            annotationQuestions: $('annotationQuestions')
         };
 
         // ===== STATEMENT MAPPING =====
         const STATEMENT_MAP = {
-            'gov_power': 'The federal government has too much power.',
-            'gov_regulation': 'Government regulation of business usually does more harm than good.',
-            'gov_waste': 'Government is always wasteful and inefficient.',
-            'compromise': 'Elected officials should stick to their positions rather than make compromises.',
-            'wealth_tax': "Wealthy people don't pay their fair share in taxes.",
-            'environ_law': 'Our country should have fewer environmental laws and regulations.',
-            'climate_change': 'Global climate change is a major threat to the world.',
-            'gov_resp': 'The government has a responsibility to help all of its citizens who are in need.',
-            'gov_needy': 'The government should do more to help the needy.',
-            'white_priv': 'White people have advantages in society that Black people do not have.',
-            'government_crime': 'The government should pass stricter laws to fight crime.',
-            'police': 'The police do a good job of making everyone feel safer.',
-            'immigrants': 'The government should allow fewer immigrants into the country.',
-            'immigrant_strength': 'Immigrants strengthen the country with their hard work and talents.',
-            'foreign_trade': 'Foreign trade is an opportunity for economic growth.',
-            'military_peace': 'The best way to ensure peace is through military strength.',
-            'military_priority': "The military should be a top priority for the country's leaders.",
-            'gun_laws': 'Gun laws should be stricter.',
-            'gun_database': 'There should be a national database to track gun sales.',
-            'public_ed': 'K-12 education in this country is satisfactory.',
-            'school_impact': 'K-12 schools are having a positive effect on the country.',
-            'transgender': "Children should learn that someone can be a boy or a girl even if that's different from sex at birth.",
-            'abortion': 'The government should allow abortion.',
-            'unrestrict_abortion': 'Abortion should be legal under any circumstance.',
-            'health_abortion': 'Abortion should be legal when the baby is likely to be born with severe disabilities or health problems.',
-            'misinformation': 'The government should do more to fight the spread of misinformation on social media.',
-            'social_media': 'Information about national events from social media can be trusted.',
-            'homosexuality': 'Homosexuality should be discouraged by society.',
-            'marijuana': 'Marijuana use should be legal.',
-            'msm': 'Mainstream media organizations can be trusted.'
+            'gov_power': 'O Governo Federal tem muito poder.',
+            'gov_regulation': 'A regulação governamental do comércio normalmente faz mais mal do que bem.',
+            'gov_waste': 'O Governo é sempre dispendioso e ineficiente.',
+            'compromise': 'Autoridades eleitas devem manter suas posições em vez de fazer concessões.',
+            'wealth_tax': 'Pessoas ricas não pagam cota justa de impostos.',
+            'environ_law': 'Nosso país deveria ter menos leis e regulamentações ambientais.',
+            'climate_change': 'Mudanças climáticas globais são a maior ameaça ao mundo.',
+            'gov_resp': 'O Governo tem a responsabilidade de ajudar todos os cidadãos necessitados.',
+            'gov_needy': 'O Governo deveria fazer mais para ajudar os necessitados.',
+            'white_priv': 'Na sociedade, pessoas brancas têm vantagens que pessoas pretas não têm.',
+            'government_crime': 'O Governo deveria aprovar leis mais rígidas para combater a criminalidade.',
+            'police': 'A polícia faz um bom trabalho para deixar todos se sentirem seguros.',
+            'immigrants': 'O Governo deveria permitir menos imigrantes no país.',
+            'immigrant_strength': 'Imigrantes fortalecem o país com seu trabalho árduo e seus talentos.',
+            'foreign_trade': 'O comércio exterior é uma oportunidade para o crescimento econômico.',
+            'military_peace': 'A melhor forma de assegurar a paz é pela força militar.',
+            'military_priority': 'As Forças Armadas devem estar no topo das prioridades dos líderes do país.',
+            'gun_laws': 'As leis armamentistas deveriam ser mais rígidas.',
+            'gun_database': 'Deveria existir um banco de dados nacional para rastrear as vendas de armas.',
+            'public_ed': 'A educação básica no Brasil é satisfatória.',
+            'school_impact': 'Escolas do ensino básico têm efeito positivo no país.',
+            'transgender': 'As crianças deveriam aprender que alguém pode ser um menino ou uma menina mesmo que, no nascimento, o sexo seja diferente.',
+            'abortion': 'O Governo deveria permitir o aborto.',
+            'unrestrict_abortion': 'O aborto deveria ser legalizado em qualquer circunstância.',
+            'health_abortion': 'Aborto deveria ser legalizado quando for provável o bebê nascer com deficiências severas ou problemas de saúde.',
+            'misinformation': 'O Governo deveria fazer mais para combater a disseminação de desinformação nas mídias sociais.',
+            'social_media': 'Informações provenientes das mídias sociais sobre eventos nacionais são confiáveis.',
+            'homosexuality': 'A homossexualidade deveria ser desencorajada pela sociedade.',
+            'marijuana': 'O uso da maconha deveria ser legalizado.',
+            'msm': 'As principais organizações midiáticas são confiáveis.'
         };
 
         function getStatementText(code) {
@@ -1273,14 +1648,14 @@
 
             // Parse header
             const header = parseCSVLine(lines[0]);
+            const rowidIdx = header.findIndex(h => h.toLowerCase() === 'rowid');
             const responseIdIdx = header.findIndex(h => h.toLowerCase() === 'responseid');
-            const xIdx = header.findIndex(h => h.toLowerCase() === 'x');
             const statementIdx = header.findIndex(h => h.toLowerCase() === 'statement');
             const agreeIdx = header.findIndex(h => h.toLowerCase() === 'agree');
             const describeIdx = header.findIndex(h => h.toLowerCase() === 'x_describe');
 
+            if (rowidIdx === -1) throw new Error('CSV must have "rowid" column');
             if (responseIdIdx === -1) throw new Error('CSV must have "ResponseId" column');
-            if (xIdx === -1) throw new Error('CSV must have "X" column');
             if (statementIdx === -1) throw new Error('CSV must have "statement" column');
             if (describeIdx === -1) throw new Error('CSV must have "X_describe" column');
 
@@ -1289,11 +1664,11 @@
             for (let i = 1; i < lines.length; i++) {
                 if (!lines[i].trim()) continue;
                 const values = parseCSVLine(lines[i]);
-                if (values.length < Math.max(responseIdIdx, xIdx, statementIdx, describeIdx) + 1) continue;
+                if (values.length < Math.max(rowidIdx, responseIdIdx, statementIdx, describeIdx) + 1) continue;
                 
                 data.push({
+                    rowid: values[rowidIdx] || '',
                     ResponseId: values[responseIdIdx] || '',
-                    X: values[xIdx] || '',
                     statement: values[statementIdx] || '',
                     agree: agreeIdx !== -1 ? (values[agreeIdx] || '') : '',
                     X_describe: values[describeIdx] || ''
@@ -1404,6 +1779,18 @@
             return null;
         }
 
+        async function apiListUsers() {
+            try {
+                const response = await fetch(`${API_BASE}/api/list-users`);
+                if (response.ok) {
+                    return await response.json();
+                }
+            } catch (e) {
+                console.log('Could not list users');
+            }
+            return null;
+        }
+
         // ===== STORAGE =====
         async function saveState() {
             // Save to localStorage as backup
@@ -1413,12 +1800,12 @@
             if (state.serverMode) {
                 const result = await apiSaveAnnotations();
                 if (result && result.success) {
-                    showToast(`Saved to annotations_${state.annotatorId}.csv`);
+                    showToast(`Salvo em annotations_${state.annotatorId}.csv`);
                 } else {
-                    showToast('Progress saved locally');
+                    showToast('Progresso salvo localmente');
                 }
             } else {
-                showToast('Progress saved locally');
+                showToast('Progresso salvo localmente');
             }
         }
 
@@ -1434,9 +1821,9 @@
             localStorage.removeItem(STORAGE_KEY);
         }
 
-        // Get unique key for each row (using X since it's unique per row)
+        // Get unique key for each row (using rowid since it's unique per row)
         function getRowKey(item) {
-            return item.X;
+            return item.rowid;
         }
 
         // ===== UI FUNCTIONS =====
@@ -1490,13 +1877,13 @@
             const statementFullText = getStatementText(item.statement);
             elements.statementText.textContent = `"${statementFullText}"`;
             
-            // Style the agree badge based on opinion
+            // Style the agree badge based on opinion (Portuguese values)
             const agree = (item.agree || '').toLowerCase();
-            elements.agreeText.textContent = item.agree || 'Unknown';
-            if (agree === 'agree') {
+            elements.agreeText.textContent = item.agree || 'Desconhecido';
+            if (agree === 'concordo') {
                 elements.agreeText.style.background = '#d4edda';
                 elements.agreeText.style.color = '#155724';
-            } else if (agree === 'disagree') {
+            } else if (agree === 'discordo') {
                 elements.agreeText.style.background = '#f8d7da';
                 elements.agreeText.style.color = '#721c24';
             } else {
@@ -1514,6 +1901,9 @@
             document.querySelectorAll('input[type="radio"]').forEach(input => {
                 input.checked = false;
             });
+            document.querySelectorAll('.open-ended-input').forEach(input => {
+                input.value = '';
+            });
             document.querySelectorAll('.question').forEach(q => q.classList.remove('error'));
 
             // Load existing annotations if any
@@ -1521,6 +1911,13 @@
             if (existing) {
                 Object.entries(existing).forEach(([field, value]) => {
                     if (!value) return;
+
+                    // Open-ended text inputs
+                    const textInput = document.getElementById(`${field}_input`);
+                    if (textInput) {
+                        textInput.value = value;
+                        return;
+                    }
                     
                     // Radio buttons
                     const radio = document.querySelector(`input[name="${field}"][value="${value}"]`);
@@ -1547,7 +1944,21 @@
 
             // Update nav buttons
             elements.prevBtn.disabled = index === 0;
-            elements.nextBtn.textContent = index === state.data.length - 1 ? 'Finish ✓' : 'Save & Next →';
+            elements.nextBtn.textContent = index === state.data.length - 1 ? 'Finalizar ✓' : 'Salvar & Próximo →';
+
+            // Handle skip state
+            const isSkipped = existing && existing._skipped;
+            if (isSkipped) {
+                elements.skipBanner.style.display = 'none';
+                elements.skipActiveBanner.classList.add('show');
+                elements.skipActiveReason.textContent = existing.skip_reason || 'sem motivo informado';
+                elements.annotationQuestions.classList.add('hidden-by-skip');
+            } else {
+                elements.skipBanner.style.display = 'flex';
+                elements.skipActiveBanner.classList.remove('show');
+                elements.annotationQuestions.classList.remove('hidden-by-skip');
+                elements.skipReason.value = '';
+            }
 
             // Scroll to top immediately
             window.scrollTo(0, 0);
@@ -1555,27 +1966,32 @@
 
         function collectCurrentAnnotations() {
             const fields = [
-                'emotion_categorical',
+                'emotion_anxiety_likert',
                 'emotion_anger_likert',
-                'emotion_joy_likert',
                 'emotion_sadness_likert',
+                'emotion_joy_likert',
                 'emotion_optimism_likert',
+                'emotion_frustration_likert',
+                'emotion_fear_likert',
+                'emotion_hope_likert',
                 'sentiment_categorical',
                 'sentiment_likert',
-                'mf_care',
-                'mf_fairness',
-                'mf_loyalty',
-                'mf_authority',
-                'mf_purity',
-                'mf_liberty',
-                'mf_honesty',
-                'mf_selfdiscipline',
+                'mf_best',
+                'mf_orientation',
                 'political_guess'
             ];
 
             const annotations = {};
             
             fields.forEach(field => {
+                // Check open-ended text inputs
+                const textInput = document.getElementById(`${field}_input`);
+                if (textInput) {
+                    const val = textInput.value.trim();
+                    if (val) annotations[field] = val;
+                    return;
+                }
+
                 // Check radio buttons
                 const radio = document.querySelector(`input[name="${field}"]:checked`);
                 if (radio) {
@@ -1598,21 +2014,18 @@
 
         function validateAnnotations(annotations) {
             const required = [
-                'emotion_categorical',
+                'emotion_anxiety_likert',
                 'emotion_anger_likert',
-                'emotion_joy_likert',
                 'emotion_sadness_likert',
+                'emotion_joy_likert',
                 'emotion_optimism_likert',
+                'emotion_frustration_likert',
+                'emotion_fear_likert',
+                'emotion_hope_likert',
                 'sentiment_categorical',
                 'sentiment_likert',
-                'mf_care',
-                'mf_fairness',
-                'mf_loyalty',
-                'mf_authority',
-                'mf_purity',
-                'mf_liberty',
-                'mf_honesty',
-                'mf_selfdiscipline',
+                'mf_best',
+                'mf_orientation',
                 'political_guess'
             ];
 
@@ -1630,7 +2043,7 @@
             });
 
             if (!valid) {
-                showToast('Please complete all questions');
+                showToast('Por favor, responda todas as perguntas');
                 // Scroll to first error
                 const firstError = document.querySelector('.question.error');
                 if (firstError) {
@@ -1661,7 +2074,7 @@
                     await saveState();
                     showScreen('complete');
                 } else {
-                    showToast('Some items still need annotation');
+                    showToast('Alguns itens ainda precisam de anotação');
                     // Find first incomplete
                     for (let i = 0; i < state.data.length; i++) {
                         const key = getRowKey(state.data[i]);
@@ -1674,28 +2087,80 @@
             }
         }
 
+        async function skipCurrentAndNext() {
+            const reason = elements.skipReason.value;
+            if (!reason) {
+                showToast('Por favor, selecione um motivo para pular');
+                elements.skipReason.focus();
+                return;
+            }
+
+            // Build an annotation object with NA for every field
+            const naFields = [
+                'emotion_anxiety_likert', 'emotion_anger_likert',
+                'emotion_sadness_likert', 'emotion_joy_likert',
+                'emotion_optimism_likert', 'emotion_frustration_likert',
+                'emotion_fear_likert', 'emotion_hope_likert',
+                'sentiment_categorical', 'sentiment_likert',
+                'mf_best', 'mf_orientation',
+                'political_guess'
+            ];
+            const annotations = { _skipped: true, skip_reason: reason };
+            naFields.forEach(f => annotations[f] = 'NA');
+
+            const item = state.data[state.currentIndex];
+            const rowKey = getRowKey(item);
+            state.annotations[rowKey] = annotations;
+            await saveState();
+            updateProgress();
+
+            if (state.currentIndex < state.data.length - 1) {
+                loadItem(state.currentIndex + 1);
+            } else {
+                if (Object.keys(state.annotations).length === state.data.length) {
+                    state.isComplete = true;
+                    await saveState();
+                    showScreen('complete');
+                } else {
+                    for (let i = 0; i < state.data.length; i++) {
+                        const key = getRowKey(state.data[i]);
+                        if (!state.annotations[key]) {
+                            loadItem(i);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        function unskipCurrent() {
+            const item = state.data[state.currentIndex];
+            const rowKey = getRowKey(item);
+            delete state.annotations[rowKey];
+            updateProgress();
+            loadItem(state.currentIndex);
+        }
+
         function generateCSV() {
             const headers = [
+                'rowid',
                 'ResponseId',
-                'X',
                 'statement',
                 'X_describe',
                 'annotator_id',
-                'emotion_categorical',
+                'skip_reason',
+                'emotion_anxiety_likert',
                 'emotion_anger_likert',
-                'emotion_joy_likert',
                 'emotion_sadness_likert',
+                'emotion_joy_likert',
                 'emotion_optimism_likert',
+                'emotion_frustration_likert',
+                'emotion_fear_likert',
+                'emotion_hope_likert',
                 'sentiment_categorical',
                 'sentiment_likert',
-                'mf_care',
-                'mf_fairness',
-                'mf_loyalty',
-                'mf_authority',
-                'mf_purity',
-                'mf_liberty',
-                'mf_honesty',
-                'mf_selfdiscipline',
+                'mf_best',
+                'mf_orientation',
                 'political_guess'
             ];
 
@@ -1703,26 +2168,24 @@
                 const rowKey = getRowKey(item);
                 const ann = state.annotations[rowKey] || {};
                 return [
+                    escapeCSV(item.rowid),
                     escapeCSV(item.ResponseId),
-                    escapeCSV(item.X),
                     escapeCSV(item.statement),
                     escapeCSV(item.X_describe),
                     escapeCSV(state.annotatorId),
-                    ann.emotion_categorical || '',
+                    escapeCSV(ann.skip_reason || ''),
+                    ann.emotion_anxiety_likert || '',
                     ann.emotion_anger_likert || '',
-                    ann.emotion_joy_likert || '',
                     ann.emotion_sadness_likert || '',
+                    ann.emotion_joy_likert || '',
                     ann.emotion_optimism_likert || '',
+                    ann.emotion_frustration_likert || '',
+                    ann.emotion_fear_likert || '',
+                    ann.emotion_hope_likert || '',
                     ann.sentiment_categorical || '',
                     ann.sentiment_likert || '',
-                    ann.mf_care || '',
-                    ann.mf_fairness || '',
-                    ann.mf_loyalty || '',
-                    ann.mf_authority || '',
-                    ann.mf_purity || '',
-                    ann.mf_liberty || '',
-                    ann.mf_honesty || '',
-                    ann.mf_selfdiscipline || '',
+                    ann.mf_best || '',
+                    ann.mf_orientation || '',
                     ann.political_guess || ''
                 ].join(',');
             });
@@ -1756,7 +2219,7 @@
                 if (username) {
                     elements.filenamePreview.textContent = `annotations_${username}.csv`;
                 } else {
-                    elements.filenamePreview.textContent = 'annotations_[username].csv';
+                    elements.filenamePreview.textContent = 'annotations_[usuario].csv';
                 }
                 checkStartReady();
                 
@@ -1768,6 +2231,17 @@
 
             elements.startBtn.addEventListener('click', startAnnotation);
             elements.resumeBtn.addEventListener('click', resumeSession);
+
+            // Confirmation dialog buttons
+            elements.confirmCancel.addEventListener('click', () => {
+                elements.confirmOverlay.classList.remove('show');
+            });
+
+            elements.confirmProceed.addEventListener('click', async () => {
+                elements.confirmOverlay.classList.remove('show');
+                const username = elements.confirmOverlay.dataset.username;
+                await doStartFresh(username);
+            });
 
             // Instructions panel toggle
             elements.instructionsBtn.addEventListener('click', () => {
@@ -1839,6 +2313,17 @@
                 }
             });
 
+            // Skip controls
+            elements.skipBtn.addEventListener('click', skipCurrentAndNext);
+            elements.unskipBtn.addEventListener('click', unskipCurrent);
+
+            // Open-ended text inputs - clear error on typing
+            document.querySelectorAll('.open-ended-input').forEach(input => {
+                input.addEventListener('input', () => {
+                    input.closest('.question')?.classList.remove('error');
+                });
+            });
+
             // Option buttons (radio style)
             document.querySelectorAll('.options-grid .option-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -1898,15 +2383,15 @@
             if (hasExistingSession) {
                 // Show resume button as primary (green), start as secondary (beige)
                 elements.resumeBtn.style.display = 'block';
-                elements.resumeBtn.textContent = `Resume Session (${completedCount}/${totalCount} completed)`;
+                elements.resumeBtn.textContent = `Retomar Sessão (${completedCount}/${totalCount} completos)`;
                 elements.resumeBtn.className = 'btn btn-primary btn-large';
                 elements.startBtn.className = 'btn btn-secondary';
-                elements.startBtn.textContent = 'Start Fresh (overwrites progress)';
+                elements.startBtn.textContent = 'Começar do Zero (apaga progresso)';
             } else {
                 // Hide resume, show start as primary
                 elements.resumeBtn.style.display = 'none';
                 elements.startBtn.className = 'btn btn-primary';
-                elements.startBtn.textContent = 'Start Annotating';
+                elements.startBtn.textContent = 'Começar a Anotar';
             }
         }
 
@@ -1917,7 +2402,30 @@
         }
 
         async function startAnnotation() {
-            state.annotatorId = elements.annotatorId.value.trim();
+            const username = elements.annotatorId.value.trim();
+
+            // Check if a file already exists on the server -- guard against accidental overwrite
+            if (state.serverMode) {
+                const check = await apiCheckUser(username);
+                if (check && check.exists) {
+                    // Show confirmation dialog instead of proceeding immediately
+                    showConfirmFresh(username);
+                    return;
+                }
+            }
+
+            // No existing file -- proceed normally
+            await doStartFresh(username);
+        }
+
+        function showConfirmFresh(username) {
+            elements.confirmOverlay.classList.add('show');
+            // Store the username so the confirm handler can use it
+            elements.confirmOverlay.dataset.username = username;
+        }
+
+        async function doStartFresh(username) {
+            state.annotatorId = username;
             state.annotations = {};
             state.currentIndex = 0;
             state.isComplete = false;
@@ -1926,7 +2434,7 @@
             if (state.serverMode) {
                 const result = await apiInitUser(state.annotatorId);
                 if (result && result.created) {
-                    showToast(`Created annotations_${state.annotatorId}.csv`);
+                    showToast(`Arquivo annotations_${state.annotatorId}.csv criado`);
                 }
             }
 
@@ -1949,6 +2457,10 @@
                     if (templateResult && templateResult.data) {
                         state.data = templateResult.data;
                         state.annotations = serverData.annotations || {};
+                        // Reconstruct _skipped flag for rows that have a skip_reason
+                        Object.values(state.annotations).forEach(ann => {
+                            if (ann.skip_reason) ann._skipped = true;
+                        });
                         state.annotatorId = username;
                         state.currentIndex = findFirstIncomplete();
                         state.isComplete = Object.keys(state.annotations).length === state.data.length;
@@ -1998,29 +2510,37 @@
             initEventListeners();
 
             // Try to load data from server
-            elements.loadingStatus.textContent = 'Loading data from server...';
+            elements.loadingStatus.textContent = 'Carregando dados do servidor...';
             
             try {
                 const result = await apiLoadTemplate();
                 if (result && result.data && result.data.length > 0) {
                     state.data = result.data;
                     state.serverMode = true;
-                    elements.loadingStatus.innerHTML = `✓ <strong>${result.count} items</strong> loaded from annotations_empty.csv`;
+                    elements.loadingStatus.innerHTML = `✓ <strong>${result.count} itens</strong> carregados de annotations_empty.csv`;
                     elements.dataStatus.style.background = 'var(--accent-light)';
                     checkStartReady();
                 } else {
                     state.serverMode = false;
                     elements.loadingStatus.innerHTML = `
-                        <span style="color: #c45a5a;">⚠️ Server not running</span><br>
-                        <small>Start the server with: <code>python server.py</code></small>
+                        <span style="color: #c45a5a;">⚠️ Servidor não está rodando</span><br>
+                        <small>Inicie o servidor com: <code>python server.py</code></small>
                     `;
                 }
             } catch (e) {
                 state.serverMode = false;
                 elements.loadingStatus.innerHTML = `
-                    <span style="color: #c45a5a;">⚠️ Could not connect to server</span><br>
-                    <small>Start the server with: <code>python server.py</code></small>
+                    <span style="color: #c45a5a;">⚠️ Não foi possível conectar ao servidor</span><br>
+                    <small>Inicie o servidor com: <code>python server.py</code></small>
                 `;
+            }
+
+            // Check for existing sessions on the server (protects against cleared cache)
+            if (state.serverMode) {
+                const usersResult = await apiListUsers();
+                if (usersResult && usersResult.users && usersResult.users.length > 0) {
+                    displayExistingSessions(usersResult.users);
+                }
             }
 
             // Check for existing session in localStorage
@@ -2034,6 +2554,39 @@
                     checkStartReady();
                 }
             }
+        }
+
+        function displayExistingSessions(users) {
+            elements.existingSessions.style.display = 'block';
+            elements.sessionsList.innerHTML = '';
+
+            users.forEach(user => {
+                const card = document.createElement('div');
+                card.className = 'session-card';
+                const pct = user.total > 0 ? Math.round((user.completed / user.total) * 100) : 0;
+                card.innerHTML = `
+                    <div class="session-info">
+                        <div class="session-username">${escapeHTML(user.username)}</div>
+                        <div class="session-progress">${user.completed} / ${user.total} completos (${pct}%)</div>
+                    </div>
+                    <div class="session-resume-label">Clique para retomar →</div>
+                `;
+                card.addEventListener('click', () => {
+                    elements.annotatorId.value = user.username;
+                    elements.filenamePreview.textContent = `annotations_${user.username}.csv`;
+                    checkExistingUser(user.username);
+                    checkStartReady();
+                    // Scroll down to the buttons
+                    elements.buttonContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+                elements.sessionsList.appendChild(card);
+            });
+        }
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
         }
 
         init();

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annotation Tool - Setup Instructions</title>
+    <title>Ferramenta de Anotação - Instruções de Configuração</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -254,44 +254,45 @@
 </head>
 <body>
     <div class="container">
-        <h1>📝 Text Annotation Tool</h1>
-        <p class="subtitle">Setup Instructions for Annotators</p>
+        <h1>📝 Ferramenta de Anotação de Textos</h1>
+        <p class="subtitle">Instruções de Configuração para Anotadores</p>
 
         <div class="toc">
-            <h3>Quick Navigation</h3>
+            <h3>Navegação Rápida</h3>
             <ul>
-                <li><a href="#overview">Overview - What You'll Be Doing</a></li>
-                <li><a href="#step1">Step 1: Download the Files</a></li>
-                <li><a href="#step2">Step 2: Install Python</a></li>
-                <li><a href="#step3">Step 3: Start the Tool</a></li>
-                <li><a href="#step4">Step 4: Begin Annotating</a></li>
-                <li><a href="#breaks">Taking Breaks & Resuming</a></li>
-                <li><a href="#finished">When You're Finished</a></li>
-                <li><a href="#moral-foundations">About Moral Foundations Theory</a></li>
-                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#overview">Visão Geral - O Que Você Vai Fazer</a></li>
+                <li><a href="#step1">Passo 1: Baixar os Arquivos</a></li>
+                <li><a href="#step2">Passo 2: Instalar o Python</a></li>
+                <li><a href="#step3">Passo 3: Iniciar a Ferramenta</a></li>
+                <li><a href="#step4">Passo 4: Começar a Anotar</a></li>
+                <li><a href="#breaks">Fazendo Pausas e Retomando</a></li>
+                <li><a href="#finished">Quando Terminar</a></li>
+                <li><a href="#moral-foundations">Sobre a Teoria dos Fundamentos Morais</a></li>
+                <li><a href="#troubleshooting">Solução de Problemas</a></li>
             </ul>
         </div>
 
-        <h2 id="overview"><span class="emoji">📋</span> What You'll Be Doing</h2>
-        <p>You'll be reading short text responses that participants wrote about various political topics. For each response, you'll annotate:</p>
+        <h2 id="overview"><span class="emoji">📋</span> O Que Você Vai Fazer</h2>
+        <p>Você vai ler respostas curtas que participantes escreveram sobre diversos tópicos políticos. Para cada resposta, você vai anotar:</p>
         <ul>
-            <li><strong>Emotions</strong> present in the text</li>
-            <li><strong>Sentiment</strong> (positive/negative/neutral)</li>
-            <li><strong>Moral foundations</strong> expressed</li>
-            <li><strong>Political inference</strong> based on the text</li>
+            <li><strong>Intensidade emocional</strong> (quanto de cada emoção está presente, em uma escala de 1 a 7)</li>
+            <li><strong>Sentimento</strong> (positivo/negativo/neutro)</li>
+            <li><strong>Fundamento moral</strong> que melhor representa o texto</li>
+            <li><strong>Orientação do fundamento moral</strong> (individualizante vs. vinculante)</li>
+            <li><strong>Inferência política</strong> com base no texto</li>
         </ul>
         <div class="success">
-            <strong>Good news!</strong> Your progress is saved automatically after each annotation, so you can take breaks and resume later.
+            <strong>Boa notícia!</strong> Seu progresso é salvo automaticamente após cada anotação, então você pode fazer pausas e continuar depois.
         </div>
 
-        <h2 id="step1"><span class="step-number">1</span> Download the Annotation Files</h2>
+        <h2 id="step1"><span class="step-number">1</span> Baixar os Arquivos de Anotação</h2>
         <ol>
-            <li>Download the <code>annotation_files</code> folder that was shared with you</li>
-            <li>Save it somewhere easy to find (like your <strong>Desktop</strong> or <strong>Documents</strong> folder)</li>
-            <li><strong>Important:</strong> Remember where you saved it!</li>
+            <li>Baixe a pasta <code>reasons_annotation_tool_pt</code> que foi compartilhada com você</li>
+            <li>Salve em um lugar fácil de encontrar (como a <strong>Área de Trabalho</strong> ou a pasta <strong>Documentos</strong>)</li>
+            <li><strong>Importante:</strong> Lembre-se de onde você salvou!</li>
         </ol>
 
-        <h2 id="step2"><span class="step-number">2</span> Install Python (if you don't have it)</h2>
+        <h2 id="step2"><span class="step-number">2</span> Instalar o Python (se você ainda não tem)</h2>
         
         <div class="tabs">
             <button class="tab active" onclick="showTab('mac-install')">🍎 Mac</button>
@@ -299,53 +300,53 @@
         </div>
 
         <div id="mac-install" class="tab-content active">
-            <h3>Check if you already have Python</h3>
+            <h3>Verifique se você já tem o Python</h3>
             <ol>
-                <li>Open <strong>Terminal</strong> (press <code>Cmd + Space</code>, type "Terminal", press Enter)</li>
-                <li>Type this command and press Enter:</li>
+                <li>Abra o <strong>Terminal</strong> (pressione <code>Cmd + Espaço</code>, digite "Terminal", pressione Enter)</li>
+                <li>Digite este comando e pressione Enter:</li>
             </ol>
             <div class="code-block">python3 --version</div>
             <ul>
-                <li>If you see something like <code>Python 3.x.x</code>, you're good! Skip to Step 3.</li>
-                <li>If you see "command not found", continue below.</li>
+                <li>Se aparecer algo como <code>Python 3.x.x</code>, está tudo certo! Pule para o Passo 3.</li>
+                <li>Se aparecer "command not found", continue abaixo.</li>
             </ul>
 
-            <h3>Install Python on Mac</h3>
+            <h3>Instalar o Python no Mac</h3>
             <ol>
-                <li>Go to <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
-                <li>Click the big yellow "Download Python" button</li>
-                <li>Open the downloaded file and follow the installation steps</li>
-                <li>Restart Terminal and try <code>python3 --version</code> again</li>
+                <li>Acesse <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                <li>Clique no botão amarelo grande "Download Python"</li>
+                <li>Abra o arquivo baixado e siga os passos de instalação</li>
+                <li>Reinicie o Terminal e tente <code>python3 --version</code> novamente</li>
             </ol>
         </div>
 
         <div id="windows-install" class="tab-content">
-            <h3>Check if you already have Python</h3>
+            <h3>Verifique se você já tem o Python</h3>
             <ol>
-                <li>Open <strong>Command Prompt</strong> (press <code>Windows key</code>, type "cmd", press Enter)</li>
-                <li>Type this command and press Enter:</li>
+                <li>Abra o <strong>Prompt de Comando</strong> (pressione a <code>tecla Windows</code>, digite "cmd", pressione Enter)</li>
+                <li>Digite este comando e pressione Enter:</li>
             </ol>
             <div class="code-block">python --version</div>
             <ul>
-                <li>If you see something like <code>Python 3.x.x</code>, you're good! Skip to Step 3.</li>
-                <li>If you see "'python' is not recognized", continue below.</li>
+                <li>Se aparecer algo como <code>Python 3.x.x</code>, está tudo certo! Pule para o Passo 3.</li>
+                <li>Se aparecer "'python' is not recognized", continue abaixo.</li>
             </ul>
 
-            <h3>Install Python on Windows</h3>
+            <h3>Instalar o Python no Windows</h3>
             <ol>
-                <li>Go to <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
-                <li>Click the big yellow "Download Python" button</li>
+                <li>Acesse <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                <li>Clique no botão amarelo grande "Download Python"</li>
             </ol>
             <div class="warning">
-                <strong>⚠️ IMPORTANT:</strong> When installing, check the box that says <strong>"Add Python to PATH"</strong> at the bottom of the first screen!
+                <strong>⚠️ IMPORTANTE:</strong> Na instalação, marque a caixa que diz <strong>"Add Python to PATH"</strong> na parte inferior da primeira tela!
             </div>
             <ol start="3">
-                <li>Click "Install Now"</li>
-                <li>Close and reopen Command Prompt, then try <code>python --version</code> again</li>
+                <li>Clique em "Install Now"</li>
+                <li>Feche e reabra o Prompt de Comando, depois tente <code>python --version</code> novamente</li>
             </ol>
         </div>
 
-        <h2 id="step3"><span class="step-number">3</span> Start the Annotation Tool</h2>
+        <h2 id="step3"><span class="step-number">3</span> Iniciar a Ferramenta de Anotação</h2>
 
         <div class="tabs">
             <button class="tab active" onclick="showTab('mac-start')">🍎 Mac</button>
@@ -354,238 +355,241 @@
 
         <div id="mac-start" class="tab-content active">
             <ol>
-                <li>Open <strong>Terminal</strong> (press <code>Cmd + Space</code>, type "Terminal", press Enter)</li>
-                <li>Navigate to the annotation_files folder. Type this command:</li>
+                <li>Abra o <strong>Terminal</strong> (pressione <code>Cmd + Espaço</code>, digite "Terminal", pressione Enter)</li>
+                <li>Navegue até a pasta reasons_annotation_tool_pt. Digite este comando:</li>
             </ol>
-            <div class="code-block">cd ~/Desktop/annotation_files</div>
-            <p>Or if you saved it in Documents:</p>
-            <div class="code-block">cd ~/Documents/annotation_files</div>
+            <div class="code-block">cd ~/Desktop/reasons_annotation_tool_pt</div>
+            <p>Ou se você salvou em Documentos:</p>
+            <div class="code-block">cd ~/Documents/reasons_annotation_tool_pt</div>
             <div class="info">
-                <strong>💡 Tip:</strong> You can also type <code>cd </code> (with a space) and then drag the annotation_files folder into the Terminal window!
+                <strong>💡 Dica:</strong> Você também pode digitar <code>cd </code> (com um espaço) e depois arrastar a pasta reasons_annotation_tool_pt para a janela do Terminal!
             </div>
             <ol start="3">
-                <li>Start the server by typing:</li>
+                <li>Inicie o servidor digitando:</li>
             </ol>
             <div class="code-block">python3 server.py</div>
             <ol start="4">
-                <li>You should see a message saying the server is running on <code>http://localhost:8000</code></li>
+                <li>Você deverá ver uma mensagem dizendo que o servidor está rodando em <code>http://localhost:8000</code></li>
             </ol>
             <div class="highlight">
-                <strong>⚠️ Keep this Terminal window open!</strong> Don't close it while you're annotating.
+                <strong>⚠️ Mantenha esta janela do Terminal aberta!</strong> Não a feche enquanto estiver anotando.
             </div>
         </div>
 
         <div id="windows-start" class="tab-content">
             <ol>
-                <li>Open <strong>Command Prompt</strong> (press <code>Windows key</code>, type "cmd", press Enter)</li>
-                <li>Navigate to the annotation_files folder. Type this command:</li>
+                <li>Abra o <strong>Prompt de Comando</strong> (pressione a <code>tecla Windows</code>, digite "cmd", pressione Enter)</li>
+                <li>Navegue até a pasta reasons_annotation_tool_pt. Digite este comando:</li>
             </ol>
-            <div class="code-block">cd Desktop\annotation_files</div>
-            <p>Or if you saved it in Documents:</p>
-            <div class="code-block">cd Documents\annotation_files</div>
-            <p>Or if you saved it in Downloads:</p>
-            <div class="code-block">cd Downloads\annotation_files</div>
+            <div class="code-block">cd Desktop\reasons_annotation_tool_pt</div>
+            <p>Ou se você salvou em Documentos:</p>
+            <div class="code-block">cd Documents\reasons_annotation_tool_pt</div>
+            <p>Ou se você salvou em Downloads:</p>
+            <div class="code-block">cd Downloads\reasons_annotation_tool_pt</div>
             <ol start="3">
-                <li>Start the server by typing:</li>
+                <li>Inicie o servidor digitando:</li>
             </ol>
             <div class="code-block">python server.py</div>
             <ol start="4">
-                <li>You should see a message saying the server is running on <code>http://localhost:8000</code></li>
+                <li>Você deverá ver uma mensagem dizendo que o servidor está rodando em <code>http://localhost:8000</code></li>
             </ol>
             <div class="highlight">
-                <strong>⚠️ Keep this Command Prompt window open!</strong> Don't close it while you're annotating.
+                <strong>⚠️ Mantenha esta janela do Prompt de Comando aberta!</strong> Não a feche enquanto estiver anotando.
             </div>
         </div>
 
-        <h2 id="step4"><span class="step-number">4</span> Open the Tool & Start Annotating</h2>
+        <h2 id="step4"><span class="step-number">4</span> Abrir a Ferramenta e Começar a Anotar</h2>
         <ol>
-            <li>Open your web browser (Chrome, Firefox, Safari, or Edge)</li>
-            <li>Go to this address:</li>
+            <li>Abra seu navegador (Chrome, Firefox, Safari ou Edge)</li>
+            <li>Acesse este endereço:</li>
         </ol>
         <div class="code-block">http://localhost:8000</div>
         <ol start="3">
-            <li>You should see the annotation tool welcome screen!</li>
-            <li><strong>Enter your username</strong> (use the username assigned to you)</li>
-            <li>Click <strong>"Start Annotating"</strong> to begin</li>
+            <li>Você deverá ver a tela de boas-vindas da ferramenta de anotação!</li>
+            <li><strong>Digite seu nome de usuário</strong> (use o nome de usuário que foi atribuído a você)</li>
+            <li>Clique em <strong>"Começar a Anotar"</strong> para iniciar</li>
         </ol>
 
-        <h3>For each text, you'll see:</h3>
+        <h3>Para cada texto, você verá:</h3>
         <ul>
-            <li><strong>Context box</strong> - Shows what political statement the person was responding to and whether they agreed/disagreed</li>
-            <li><strong>Their response</strong> - The text you need to annotate</li>
+            <li><strong>Caixa de contexto</strong> - Mostra qual afirmação política a pessoa estava respondendo e se concordou/discordou</li>
+            <li><strong>A resposta</strong> - O texto que você precisa anotar</li>
         </ul>
 
-        <h3>What to annotate:</h3>
+        <h3>O que anotar:</h3>
         <ol>
-            <li>Select the <strong>primary emotion</strong> (Anger, Joy, Sadness, or Optimism)</li>
-            <li>Rate the <strong>intensity of each emotion</strong> (1-7 scale)</li>
-            <li>Rate the <strong>sentiment</strong> (positive/neutral/negative and 1-7 scale)</li>
-            <li>Select <strong>Yes/No</strong> for each moral foundation</li>
-            <li>Make your <strong>political inference</strong> guess</li>
+            <li>Avalie a <strong>intensidade de cada emoção</strong> (ansiedade, tristeza, raiva, alegria, otimismo, frustração, medo, esperança) em uma escala de 1 a 7</li>
+            <li>Avalie o <strong>sentimento</strong> (positivo/neutro/negativo e escala de 1 a 7)</li>
+            <li>Escolha o único <strong>fundamento moral</strong> que melhor representa o texto</li>
+            <li>Escolha a <strong>orientação do fundamento moral</strong> (individualizante, vinculante, nenhuma ou não é possível determinar)</li>
+            <li>Faça sua <strong>inferência política</strong></li>
         </ol>
-        <p>Click <strong>"Save & Next"</strong> to save your annotations and move to the next text.</p>
+        <p>Clique em <strong>"Salvar & Próximo"</strong> para salvar suas anotações e ir para o próximo texto.</p>
         <div class="info">
-            <strong>💡 Tip:</strong> Click the "📖 Instructions" button in the top menu to see detailed explanations of each category while annotating.
+            <strong>💡 Dica:</strong> Clique no botão "📖 Instruções" no menu superior para ver explicações detalhadas de cada categoria enquanto anota.
         </div>
 
-        <h2 id="breaks"><span class="emoji">☕</span> Taking Breaks & Resuming Later</h2>
+        <h2 id="breaks"><span class="emoji">☕</span> Fazendo Pausas e Retomando Depois</h2>
         
-        <h3>To take a break:</h3>
+        <h3>Para fazer uma pausa:</h3>
         <ol>
-            <li>Just close the browser tab</li>
-            <li>In Terminal/Command Prompt, press <code>Ctrl + C</code> to stop the server</li>
-            <li>Close the Terminal/Command Prompt window</li>
+            <li>Basta fechar a aba do navegador</li>
+            <li>No Terminal/Prompt de Comando, pressione <code>Ctrl + C</code> para parar o servidor</li>
+            <li>Feche a janela do Terminal/Prompt de Comando</li>
         </ol>
 
-        <h3>To resume later:</h3>
+        <h3>Para retomar depois:</h3>
         <ol>
-            <li>Open Terminal/Command Prompt again</li>
-            <li>Navigate to the annotation_files folder (same as Step 3)</li>
-            <li>Start the server again</li>
-            <li>Go to <code>http://localhost:8000</code> in your browser</li>
-            <li>Enter the <strong>same username</strong> you used before</li>
-            <li>Click <strong>"Resume Session"</strong> - your progress will be restored!</li>
+            <li>Abra o Terminal/Prompt de Comando novamente</li>
+            <li>Navegue até a pasta reasons_annotation_tool_pt (mesmo que o Passo 3)</li>
+            <li>Inicie o servidor novamente</li>
+            <li>Acesse <code>http://localhost:8000</code> no seu navegador</li>
+            <li>Digite o <strong>mesmo nome de usuário</strong> que você usou antes</li>
+            <li>Clique em <strong>"Retomar Sessão"</strong> - seu progresso será restaurado!</li>
         </ol>
 
-        <h2 id="finished"><span class="emoji">🎉</span> When You're Finished</h2>
+        <h2 id="finished"><span class="emoji">🎉</span> Quando Terminar</h2>
         <ol>
-            <li>Complete all annotations</li>
-            <li>Your annotations are automatically saved in a file called <code>annotations_[your_username].csv</code></li>
-            <li>You can also click "Download Annotations (CSV)" on the completion screen as a backup</li>
-            <li>Close the browser</li>
-            <li>In Terminal/Command Prompt, press <code>Ctrl + C</code> to stop the server</li>
-            <li><strong>Send the <code>annotations_[your_username].csv</code> file back to the research team</strong></li>
+            <li>Complete todas as anotações</li>
+            <li>Suas anotações são salvas automaticamente em um arquivo chamado <code>annotations_[seu_usuario].csv</code></li>
+            <li>Você também pode clicar em "Baixar Anotações (CSV)" na tela de conclusão como backup</li>
+            <li>Feche o navegador</li>
+            <li>No Terminal/Prompt de Comando, pressione <code>Ctrl + C</code> para parar o servidor</li>
+            <li><strong>Envie o arquivo <code>annotations_[seu_usuario].csv</code> de volta para a equipe de pesquisa</strong></li>
         </ol>
 
-        <h2 id="troubleshooting"><span class="emoji">🔧</span> Troubleshooting</h2>
+        <h2 id="troubleshooting"><span class="emoji">🔧</span> Solução de Problemas</h2>
 
-        <h3>"Address already in use" error</h3>
-        <p>The server might still be running from before.</p>
+        <h3>Erro "Address already in use"</h3>
+        <p>O servidor pode ainda estar rodando de antes.</p>
         <ul>
-            <li><strong>Mac:</strong> In Terminal, type: <code>lsof -ti:8000 | xargs kill -9</code> then try starting the server again</li>
-            <li><strong>Windows:</strong> Close all Command Prompt windows and try again, or restart your computer</li>
+            <li><strong>Mac:</strong> No Terminal, digite: <code>lsof -ti:8000 | xargs kill -9</code> e depois tente iniciar o servidor novamente</li>
+            <li><strong>Windows:</strong> Feche todas as janelas do Prompt de Comando e tente novamente, ou reinicie o computador</li>
         </ul>
 
-        <h3>"python not found" or "python3 not found"</h3>
+        <h3>"python not found" ou "python3 not found"</h3>
         <ul>
-            <li>Make sure you installed Python (see Step 2)</li>
-            <li><strong>Windows:</strong> Make sure you checked "Add Python to PATH" during installation. You may need to reinstall Python with this option checked.</li>
-            <li>Try closing and reopening Terminal/Command Prompt</li>
+            <li>Certifique-se de que você instalou o Python (veja o Passo 2)</li>
+            <li><strong>Windows:</strong> Certifique-se de que marcou "Add Python to PATH" durante a instalação. Pode ser necessário reinstalar o Python com essa opção marcada.</li>
+            <li>Tente fechar e reabrir o Terminal/Prompt de Comando</li>
         </ul>
 
-        <h3>Page won't load in browser</h3>
+        <h3>A página não carrega no navegador</h3>
         <ul>
-            <li>Make sure the server is still running (check your Terminal/Command Prompt window)</li>
-            <li>Make sure you're going to <code>http://localhost:8000</code> (not https)</li>
-            <li>Try a different browser</li>
+            <li>Certifique-se de que o servidor ainda está rodando (verifique sua janela do Terminal/Prompt de Comando)</li>
+            <li>Certifique-se de que está acessando <code>http://localhost:8000</code> (não https)</li>
+            <li>Tente um navegador diferente</li>
         </ul>
 
-        <h3>"Server not running" message in the tool</h3>
+        <h3>Mensagem "Servidor não está rodando" na ferramenta</h3>
         <ul>
-            <li>Make sure you started the server with <code>python3 server.py</code> (Mac) or <code>python server.py</code> (Windows)</li>
-            <li>Make sure you're in the correct folder (the one containing server.py)</li>
+            <li>Certifique-se de que iniciou o servidor com <code>python3 server.py</code> (Mac) ou <code>python server.py</code> (Windows)</li>
+            <li>Certifique-se de que está na pasta correta (a que contém o server.py)</li>
         </ul>
 
-        <h3>My progress wasn't saved!</h3>
+        <h3>Meu progresso não foi salvo!</h3>
         <ul>
-            <li>Make sure you clicked "Save & Next" after each annotation</li>
-            <li>Make sure you used the <strong>exact same username</strong> when resuming</li>
-            <li>Check that the server was running the whole time</li>
+            <li>Certifique-se de que clicou em "Salvar & Próximo" após cada anotação</li>
+            <li>Certifique-se de que usou o <strong>mesmo nome de usuário</strong> ao retomar</li>
+            <li>Verifique se o servidor estava rodando o tempo todo</li>
         </ul>
 
         <hr>
 
-        <h2 id="moral-foundations"><span class="emoji">⚖️</span> About Moral Foundations Theory</h2>
+        <h2 id="moral-foundations"><span class="emoji">⚖️</span> Sobre a Teoria dos Fundamentos Morais</h2>
         
-        <p>Moral Foundations Theory states that human morality rests on different foundations that reflect concerns about different aspects of life. While values and moral rules vary between individuals, communities, and cultures, Moral Foundations Theory predicts that there are a few basic (or foundational) dimensions of morality that represent the bad at one extreme and the good at the other.</p>
+        <p>A Teoria dos Fundamentos Morais afirma que a moralidade humana se baseia em diferentes fundamentos que refletem preocupações sobre diferentes aspectos da vida. Embora valores e regras morais variem entre indivíduos, comunidades e culturas, a Teoria dos Fundamentos Morais prevê que existem algumas dimensões básicas (ou fundamentais) da moralidade que representam o mal em um extremo e o bem no outro.</p>
 
         <div class="info">
-            <strong>Your task:</strong> For each text you annotate, decide whether the writer expresses or relates to each of the following moral foundations.
+            <strong>Sua tarefa:</strong> Para cada texto que você anotar, escolha o <strong>único fundamento moral</strong> que melhor representa o que o autor está expressando, e depois decida se o texto tende para uma orientação <strong>individualizante</strong> ou <strong>vinculante</strong>.
         </div>
 
-        <h3>Care / Harm</h3>
-        <p>This foundation is related to <strong>attachment and our ability to feel the pain of others</strong>. Physically or emotionally harming another person or animal is typically considered morally wrong, while showing compassion or kindness towards others is typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h3>Os Fundamentos Morais</h3>
 
-        <h3>Fairness / Unfairness</h3>
-        <p>This foundation is related to <strong>our need to cooperate with others and be trustworthy</strong>. Cheating or taking more than one's share is typically considered morally wrong, while working together with others or treating people equally is typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Cuidado / Dano</h4>
+        <p>Este fundamento está relacionado ao <strong>apego e à nossa capacidade de sentir a dor do outro</strong>. Causar dano físico ou emocional a outra pessoa ou animal é tipicamente considerado moralmente errado, enquanto mostrar compaixão ou bondade para com os outros é tipicamente considerado moralmente bom.</p>
 
-        <h3>Loyalty / Disloyalty</h3>
-        <p>This foundation is related to <strong>forming tight groups and coalitions with people</strong>. Betraying someone or being unfaithful are typically considered morally wrong, while being trustworthy or dependable is typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Justiça / Injustiça</h4>
+        <p>Este fundamento está relacionado à <strong>nossa necessidade de cooperar com os outros e ser confiável</strong>. Trapacear ou tomar mais do que sua parte é tipicamente considerado moralmente errado, enquanto trabalhar junto com os outros ou tratar as pessoas igualmente é tipicamente considerado moralmente bom.</p>
 
-        <h3>Authority / Subversion</h3>
-        <p>This foundation is related to <strong>showing deference toward legitimate authorities and "high-status" individuals</strong>. Not following orders is typically considered morally wrong, while showing respect toward institutions or symbols of authority is typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Autoridade / Subversão</h4>
+        <p>Este fundamento está relacionado a <strong>mostrar deferência a autoridades legítimas e indivíduos de "alto status"</strong>. Não seguir ordens é tipicamente considerado moralmente errado, enquanto mostrar respeito a instituições ou símbolos de autoridade é tipicamente considerado moralmente bom.</p>
 
-        <h3>Purity / Degradation</h3>
-        <p>This foundation is related to <strong>avoiding disgusting things and maintaining cleanliness</strong>. It is also related to religious notions of avoiding bodily and spiritual contamination. Sexual deviance, overindulgence, and disgusting behavior are considered morally wrong, while being healthy and respecting the Earth are typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Lealdade / Deslealdade</h4>
+        <p>Este fundamento está relacionado a <strong>formar grupos coesos e coalizões com pessoas</strong>. Trair alguém ou ser infiel são tipicamente considerados moralmente errados, enquanto ser confiável ou leal é tipicamente considerado moralmente bom.</p>
 
-        <h3>Liberty / Oppression</h3>
-        <p>This foundation is related to <strong>individual freedom and resisting domination</strong>. Coercing people and reducing freedom of choice are typically considered morally wrong, while promoting autonomy is typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Pureza / Degradação</h4>
+        <p>Este fundamento está relacionado a <strong>evitar coisas repugnantes e manter a limpeza</strong>. Também está relacionado a noções religiosas de evitar a contaminação corporal e espiritual. Desvio sexual, indulgência excessiva e comportamento repugnante são considerados moralmente errados, enquanto ser saudável e respeitar a Terra são tipicamente considerados moralmente bons.</p>
 
-        <h3>Honesty / Dishonesty</h3>
-        <p>This foundation is related to <strong>being truthful</strong>. Being deceitful and lying are typically considered morally wrong, while speaking the truth and being open are typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Liberdade / Opressão</h4>
+        <p>Este fundamento está relacionado à <strong>liberdade individual e à resistência à dominação</strong>. Coagir pessoas e reduzir a liberdade de escolha são tipicamente considerados moralmente errados, enquanto promover a autonomia é tipicamente considerado moralmente bom.</p>
 
-        <h3>Self-discipline / Lack of self-discipline</h3>
-        <p>This foundation is related to <strong>being industrious and not giving up easily</strong>. Being lazy and giving into temptation are typically considered morally wrong, while persistence and controlling impulses are typically considered morally good.</p>
-        <p><em>Example: INSERT EXAMPLE HERE</em></p>
+        <h4>Honestidade / Desonestidade</h4>
+        <p>Este fundamento está relacionado a <strong>ser verdadeiro</strong>. Ser enganoso e mentir são tipicamente considerados moralmente errados, enquanto falar a verdade e ser transparente são tipicamente considerados moralmente bons.</p>
+
+        <h4>Autodisciplina / Falta de autodisciplina</h4>
+        <p>Este fundamento está relacionado a <strong>ser laborioso e não desistir facilmente</strong>. Ser preguiçoso e ceder à tentação são tipicamente considerados moralmente errados, enquanto persistência e controle de impulsos são tipicamente considerados moralmente bons.</p>
+
+        <h3>Orientação do Fundamento Moral</h3>
+        <p>Esta pergunta avalia se o texto foca em <strong>direitos individuais</strong> ou <strong>coesão grupal</strong>.</p>
+        <ul>
+            <li><strong>Individualizante</strong> significa que o texto foca em direitos individuais independente da pertença ao grupo. Inclui os fundamentos de cuidado-dano e justiça-trapaça.</li>
+            <li><strong>Vinculante</strong> significa que o texto foca em valores que unem e constroem grupos sociais. Inclui os fundamentos de lealdade ao grupo, respeito à autoridade e pureza/santidade.</li>
+            <li><strong>Nenhuma</strong> se o texto não se encaixa claramente em nenhuma orientação.</li>
+        </ul>
+        <p>Selecione <strong>Não é possível determinar</strong> se não houver informação suficiente.</p>
 
         <hr>
 
-        <h2><span class="emoji">📞</span> Need Help?</h2>
-        <p>If you run into any issues not covered here, please contact the research team with:</p>
+        <h2><span class="emoji">📞</span> Precisa de Ajuda?</h2>
+        <p>Se você encontrar algum problema não coberto aqui, entre em contato com a equipe de pesquisa informando:</p>
         <ol>
-            <li>What operating system you're using (Mac or Windows)</li>
-            <li>What step you're stuck on</li>
-            <li>Any error messages you see (a screenshot helps!)</li>
+            <li>Qual sistema operacional você está usando (Mac ou Windows)</li>
+            <li>Em qual passo você está travado(a)</li>
+            <li>Quaisquer mensagens de erro que você veja (uma captura de tela ajuda!)</li>
         </ol>
 
         <hr>
 
-        <h2><span class="emoji">📋</span> Quick Reference</h2>
+        <h2><span class="emoji">📋</span> Referência Rápida</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Action</th>
+                    <th>Ação</th>
                     <th>Mac</th>
                     <th>Windows</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Open terminal</td>
-                    <td><code>Cmd + Space</code>, type "Terminal"</td>
-                    <td><code>Windows key</code>, type "cmd"</td>
+                    <td>Abrir terminal</td>
+                    <td><code>Cmd + Espaço</code>, digite "Terminal"</td>
+                    <td><code>Tecla Windows</code>, digite "cmd"</td>
                 </tr>
                 <tr>
-                    <td>Navigate to folder</td>
-                    <td><code>cd ~/Desktop/annotation_files</code></td>
-                    <td><code>cd Desktop\annotation_files</code></td>
+                    <td>Navegar até a pasta</td>
+                    <td><code>cd ~/Desktop/reasons_annotation_tool_pt</code></td>
+                    <td><code>cd Desktop\reasons_annotation_tool_pt</code></td>
                 </tr>
                 <tr>
-                    <td>Start server</td>
+                    <td>Iniciar servidor</td>
                     <td><code>python3 server.py</code></td>
                     <td><code>python server.py</code></td>
                 </tr>
                 <tr>
-                    <td>Stop server</td>
+                    <td>Parar servidor</td>
                     <td><code>Ctrl + C</code></td>
                     <td><code>Ctrl + C</code></td>
                 </tr>
                 <tr>
-                    <td>Open tool</td>
+                    <td>Abrir ferramenta</td>
                     <td colspan="2" style="text-align: center;"><code>http://localhost:8000</code></td>
                 </tr>
             </tbody>
         </table>
 
         <hr>
-        <p style="text-align: center; color: #666; margin-top: 2rem;">Thank you for participating in this study! 🙏</p>
+        <p style="text-align: center; color: #666; margin-top: 2rem;">Obrigado(a) por participar deste estudo! 🙏</p>
     </div>
 
     <script>

@@ -57,6 +57,11 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(400, "Username required")
             return
         
+        # API endpoint to list all existing annotator files
+        if parsed.path == '/api/list-users':
+            self.send_json_response(self.list_existing_users())
+            return
+        
         # Serve index.html for root
         if parsed.path == '/':
             self.path = '/annotation_tool.html'
@@ -127,6 +132,38 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                     data.append(row)
         return {"data": data, "count": len(data)}
     
+    def list_existing_users(self):
+        """Scan for existing annotations_*.csv files and return usernames + progress"""
+        users = []
+        for filepath in sorted(BASE_DIR.glob("annotations_*.csv")):
+            filename = filepath.name
+            # Skip the template file
+            if filename == "annotations_empty.csv":
+                continue
+            # Extract username from annotations_USERNAME.csv
+            username = filename[len("annotations_"):-len(".csv")]
+            if not username:
+                continue
+            # Count how many rows have at least one annotation field filled in
+            completed = 0
+            total = 0
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    reader = csv.DictReader(f)
+                    for row in reader:
+                        total += 1
+                        # Check if any annotation field is filled
+                        if row.get('emotion_anxiety_likert', ''):
+                            completed += 1
+            except Exception:
+                pass
+            users.append({
+                "username": username,
+                "completed": completed,
+                "total": total
+            })
+        return {"users": users}
+    
     def load_user_annotations(self, username):
         """Load existing user annotations if they exist"""
         user_file = BASE_DIR / f"annotations_{username}.csv"
@@ -139,23 +176,24 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                 for row in reader:
                     data.append(row)
                     # Extract annotations from the row
-                    x_value = row.get('X', '')
-                    if x_value:
+                    rowid_value = row.get('rowid', '')
+                    if rowid_value:
                         ann = {}
                         annotation_fields = [
-                            'emotion_categorical', 'emotion_anger_likert', 'emotion_joy_likert',
-                            'emotion_sadness_likert', 'emotion_optimism_likert',
+                            'skip_reason',
+                            'emotion_anxiety_likert', 'emotion_anger_likert',
+                            'emotion_sadness_likert', 'emotion_joy_likert',
+                            'emotion_optimism_likert', 'emotion_frustration_likert',
+                            'emotion_fear_likert', 'emotion_hope_likert',
                             'sentiment_categorical', 'sentiment_likert',
-                            'mf_care', 'mf_fairness', 'mf_loyalty',
-                            'mf_authority', 'mf_purity', 'mf_liberty',
-                            'mf_honesty', 'mf_selfdiscipline',
+                            'mf_best', 'mf_orientation',
                             'political_guess'
                         ]
                         for field in annotation_fields:
                             if field in row and row[field]:
                                 ann[field] = row[field]
                         if ann:
-                            annotations[x_value] = ann
+                            annotations[rowid_value] = ann
         
         return {"data": data, "annotations": annotations, "exists": user_file.exists()}
     
@@ -166,21 +204,19 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
         # Define annotation columns
         annotation_columns = [
             'annotator_id',
-            'emotion_categorical',
+            'skip_reason',
+            'emotion_anxiety_likert',
             'emotion_anger_likert',
-            'emotion_joy_likert',
             'emotion_sadness_likert',
+            'emotion_joy_likert',
             'emotion_optimism_likert',
+            'emotion_frustration_likert',
+            'emotion_fear_likert',
+            'emotion_hope_likert',
             'sentiment_categorical',
             'sentiment_likert',
-            'mf_care',
-            'mf_fairness',
-            'mf_loyalty',
-            'mf_authority',
-            'mf_purity',
-            'mf_liberty',
-            'mf_honesty',
-            'mf_selfdiscipline',
+            'mf_best',
+            'mf_orientation',
             'political_guess'
         ]
         
@@ -203,31 +239,29 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                             row[col] = ''
                         writer.writerow(row)
         
-        print(f"Created: {user_file}")
+        print(f"Criado: {user_file}")
     
     def save_user_annotations(self, username, template_data, annotations):
         """Save annotations to user-specific CSV"""
         user_file = BASE_DIR / f"annotations_{username}.csv"
         
         # Define all columns
-        base_columns = ['ResponseId', 'X', 'statement', 'agree', 'X_describe']
+        base_columns = ['rowid', 'ResponseId', 'statement', 'agree', 'X_describe']
         annotation_columns = [
             'annotator_id',
-            'emotion_categorical',
+            'skip_reason',
+            'emotion_anxiety_likert',
             'emotion_anger_likert',
-            'emotion_joy_likert',
             'emotion_sadness_likert',
+            'emotion_joy_likert',
             'emotion_optimism_likert',
+            'emotion_frustration_likert',
+            'emotion_fear_likert',
+            'emotion_hope_likert',
             'sentiment_categorical',
             'sentiment_likert',
-            'mf_care',
-            'mf_fairness',
-            'mf_loyalty',
-            'mf_authority',
-            'mf_purity',
-            'mf_liberty',
-            'mf_honesty',
-            'mf_selfdiscipline',
+            'mf_best',
+            'mf_orientation',
             'political_guess'
         ]
         all_columns = base_columns + annotation_columns
@@ -238,8 +272,8 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
             
             for item in template_data:
                 row = {
+                    'rowid': item.get('rowid', ''),
                     'ResponseId': item.get('ResponseId', ''),
-                    'X': item.get('X', ''),
                     'statement': item.get('statement', ''),
                     'agree': item.get('agree', ''),
                     'X_describe': item.get('X_describe', ''),
@@ -247,9 +281,9 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                 }
                 
                 # Add annotations if they exist for this row
-                x_value = item.get('X', '')
-                if x_value in annotations:
-                    ann = annotations[x_value]
+                rowid_value = item.get('rowid', '')
+                if rowid_value in annotations:
+                    ann = annotations[rowid_value]
                     for col in annotation_columns[1:]:  # Skip annotator_id
                         row[col] = ann.get(col, '')
                 else:
@@ -258,7 +292,7 @@ class AnnotationHandler(http.server.SimpleHTTPRequestHandler):
                 
                 writer.writerow(row)
         
-        print(f"Saved annotations for {username} to {user_file}")
+        print(f"Anotações de {username} salvas em {user_file}")
     
     def send_json_response(self, data):
         """Send a JSON response"""
@@ -282,21 +316,21 @@ def main():
     with socketserver.TCPServer(("", PORT), AnnotationHandler) as httpd:
         print(f"""
 ╔════════════════════════════════════════════════════════════╗
-║           Annotation Tool Server Running!                   ║
+║       Servidor da Ferramenta de Anotação Rodando!           ║
 ╠════════════════════════════════════════════════════════════╣
 ║                                                             ║
-║  Open your browser to:  http://localhost:{PORT}              ║
+║  Abra seu navegador em:  http://localhost:{PORT}             ║
 ║                                                             ║
-║  Files will be saved as: annotations_[USERNAME].csv         ║
+║  Arquivos salvos como: annotations_[USUARIO].csv            ║
 ║                                                             ║
-║  Press Ctrl+C to stop the server                            ║
+║  Pressione Ctrl+C para parar o servidor                     ║
 ║                                                             ║
 ╚════════════════════════════════════════════════════════════╝
 """)
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
-            print("\nServer stopped.")
+            print("\nServidor parado.")
 
 if __name__ == "__main__":
     main()

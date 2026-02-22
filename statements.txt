@@ -1,0 +1,121 @@
+gov_power
+Statement 1: The federal government has too much power.
+Afirmação 1: O Governo Federal tem muito poder.
+
+gov_reg
+Statement 2: Government regulation of business usually does more harm than good.
+Afirmação 2: A regulação governamental do comércio  normalmente faz mais mal do que bem.
+
+gov_waste
+Statement 3: Government is always wasteful and inefficient.
+Afirmação 3: O Governo é sempre dispendioso e ineficiente.
+
+compromise
+Statement 4: Elected officials should stick to their positions rather than make compromises.
+Afirmação 4: Autoridades eleitas devem manter suas posições em vez de fazer concessões.
+
+wealth_tax
+Statement 5: Wealthy people don’t pay their fair share in taxes.
+Afirmação 5: Pessoas ricas não pagam cota justa de impostos.
+
+environ_law
+Statement 6: Our country should have fewer environmental laws and regulations.
+Afirmação 6: Nosso país deveria ter menos leis e regulamentações ambientais.
+
+climate_change
+Statement 7: Global climate change is a major threat to the world.
+Afirmação 7: Mudanças climáticas globais  são a maior ameaça ao mundo .
+
+gov_resp
+Statement 8: The government has a responsibility to help all of its citizens who are in need.
+Afirmação 8: O Governo tem a responsabilidade de ajudar todos os cidadãos necessitados.
+
+gov_need
+Statement 9: The government should do more to help the needy.
+Afirmação 9: O Governo deveria fazer mais para ajudar os necessitados.
+
+white_black
+Statement 10: White people have advantages in society that Black people do not have.
+Afirmação 10: Na sociedade, pessoas brancas têm vantagens que pessoas pretas não têm.
+
+gov_law
+Statement 11: The government should pass stricter laws to fight crime.
+Afirmação 11: O Governo deveria aprovar leis mais rígidas para combater a criminalidade .
+
+police
+Statement 12: The police do a good job of making everyone feel safer.
+Afirmação 12: A polícia faz um bom trabalho para deixar todos se sentirem seguros.
+
+immigration
+Statement 13: The government should allow fewer immigrants into the country.
+Afirmação 13: O Governo deveria permitir menos imigrantes no país.
+
+imm_strength
+Statement 14: Immigrants strengthen the country with their hard work and talents.
+Afirmação 14: Imigrantes fortalecem o país com seu trabalho árduo e seus talentos.
+
+foreign_trade
+Statement 15: Foreign trade is an opportunity for economic growth.
+Afirmação 15: O comércio exterior é uma oportunidade para o crescimento econômico.
+
+military_peace
+Statement 16: The best way to ensure peace is through military strength.
+Afirmação 16: A melhor forma de assegurar a paz é pela força militar.
+
+military_priority
+Statement 17: The military should be a top priority for the country’s leaders.
+Afirmação 17: As Forças Armadas  devem estar no topo das prioridades dos líderes do país.
+
+gun_laws
+Statement 18: Gun laws should be stricter.
+Afirmação 18: As leis armamentistas deveriam ser mais rígidas.
+
+gun_sales
+Statement 19: There should be a national database to track gun sales.
+Afirmação 19: Deveria existir um banco de dados nacional para rastrear as vendas de armas.
+
+k12_education
+Statement 20: K-12 education in this country is satisfactory.
+Afirmação 20: A educação básica  no Brasil  é satisfatória.
+
+k12_positive
+Statement 21: K-12 schools are having a positive effect on the country.
+Afirmação 21: Escolas do ensino básico têm efeito positivo no país.
+
+sex_birth
+Statement 22: Children should learn that someone can be a boy or a girl even if that’s different from sex at birth.
+Afirmação 22: As crianças deveriam aprender que alguém pode ser um menino ou uma menina mesmo que, no nascimento, o sexo seja diferente.
+
+gov_abortion
+Statement 23: The government should allow abortion.
+Afirmação 23: O Governo deveria permitir o aborto.
+
+abortion
+Statement 24: Abortion should be legal under any circumstance.
+Afirmação 24: O aborto deveria ser legalizado  em qualquer circunstância.
+
+abortion_problems
+Statement 25: Abortion should be legal when the baby is likely to be born with severe disabilities or health problems.
+Afirmação 25: Aborto deveria ser legalizado quando for provável o bebê nascer com deficiências severas ou problemas de saúde.
+
+misinformation
+Statement 26: The government should do more to fight the spread of misinformation on social media.
+Afirmação 26: O Governo deveria fazer mais para combater a disseminação de desinformação nas mídias sociais.
+
+homosexuality
+Statement 27: Homosexuality should be discouraged by society.
+Afirmação 27: A homossexualidade deveria ser desencorajada pela sociedade.
+
+marijuana
+Statement 28: Marijuana use should be legal.
+Afirmação 28: O uso da maconha deveria ser legalizado.
+
+msm
+Statement 29: Mainstream media organizations can be trusted.
+Afirmação 29: As principais organizações midiáticas são confiáveis.
+
+soc_med
+Statement 30: Information about national events from social media can be trusted.
+Afirmação 30: Informações provenientes das mídias sociais sobre eventos nacionais são confiáveis.
+
+
